@@ -9,7 +9,7 @@ Bem-vindo ao meu portfólio online! Este projeto foi desenvolvido para mostrar m
 
 ## 🚀 Funcionalidades
 
-- **Seção Sobre Mim**: Uma breve introdução sobre minha trajetória e interesses.
+- **Seção Sobre Mim**: Uma breve introdução sobre meus interesses.
 - **Tema Personalizável**: É possível alternar entre os temas light e dark.
 - **Galeria de Projetos**: Visão detalhada de projetos, atualmente estática, mas com plano de integração futura com a API do GitHub para exibição dinâmica.
 
