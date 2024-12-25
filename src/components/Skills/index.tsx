@@ -1,9 +1,9 @@
-import Section from "../Section"
-import { Content } from "./styles"
-import SkillGroup from "../SkillGroup"
-import { SkillGroupProps } from "../SkillGroup"
+import Section from '../Section'
+import { Content } from './styles'
+import SkillGroup from '../SkillGroup'
+import { SkillGroupProps } from '../SkillGroup'
 
-import { GlobalContainer } from "../../styles"
+import { GlobalContainer } from '../../styles'
 
 import html from '../../assets/logos/html.svg'
 import css from '../../assets/logos/css.svg'
@@ -16,57 +16,57 @@ import git from '../../assets/logos/git.svg'
 import sass from '../../assets/logos/sass.svg'
 
 const skills: SkillGroupProps[] = [
-    {
-        text: 'HTML',
-        logo: html
-    },
-    {
-        text: 'CSS',
-        logo: css
-    },
-    {
-        text: 'JavaScript',
-        logo: javascript
-    },
-    {
-        text: 'TypeScript',
-        logo: typescript
-    },
-    {
-        text: 'React',
-        logo: react
-    },
-    {
-        text: 'Redux',
-        logo: redux
-    },
-    {
-        text: 'Next.js',
-        logo: next
-    },
-    {
-        text: 'Git',
-        logo: git
-    },
-    {
-        text: 'SASS',
-        logo: sass
-    }
+  {
+    text: 'HTML',
+    logo: html
+  },
+  {
+    text: 'CSS',
+    logo: css
+  },
+  {
+    text: 'JavaScript',
+    logo: javascript
+  },
+  {
+    text: 'TypeScript',
+    logo: typescript
+  },
+  {
+    text: 'React',
+    logo: react
+  },
+  {
+    text: 'Redux',
+    logo: redux
+  },
+  {
+    text: 'Next.js',
+    logo: next
+  },
+  {
+    text: 'Git',
+    logo: git
+  },
+  {
+    text: 'SASS',
+    logo: sass
+  }
 ]
 
 const Skills = () => (
-    <Section backgroundColor="red">
-        <GlobalContainer>
-            <h2>Habilidades principais</h2>
-            <Content>
-                {skills.map((skill, index) => (
-                    <li key={index+1}>
-                        <SkillGroup logo={skill.logo} text={skill.text} />
-                    </li>
-                ))}
-            </Content>
-        </GlobalContainer>
-    </Section>
+  <Section backgroundColor="red">
+    <GlobalContainer>
+      <h2>Habilidades principais</h2>
+      <Content>
+        {skills.map((skill, index) => (
+          <li key={index + 1}>
+            <SkillGroup logo={skill.logo} text={skill.text} />
+          </li>
+        ))}
+      </Content>
+    </GlobalContainer>
+  </Section>
 )
 
 export default Skills
