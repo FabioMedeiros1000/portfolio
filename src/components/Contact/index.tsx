@@ -28,7 +28,12 @@ const Contact = () => (
             <textarea />
           </FormGroup>
         </FormData>
-        <Button bgColor="red">Enviar</Button>
+        <Button
+          bgColor="red"
+          title="Clique aqui para mandar essa mensagem para o meu email"
+        >
+          Enviar
+        </Button>
       </form>
     </GlobalContainer>
   </Section>

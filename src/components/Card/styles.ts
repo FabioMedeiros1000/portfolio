@@ -1,6 +1,15 @@
 import styled from 'styled-components'
 import { colors } from '../../variables'
 
+export const CardContainer = styled.div`
+  cursor: pointer;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+`
+
 export const Header = styled.h3`
   height: 66pm;
   background-color: ${colors.blue};
