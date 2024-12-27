@@ -5,7 +5,8 @@ export const Group = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 174px img {
-    width: 100%;
+
+  img {
+    width: 128px;
   }
 `

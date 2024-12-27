@@ -8,7 +8,7 @@ export type FooterProps = {
 const FooterGroup = ({ logo, text }: FooterProps) => (
   <Container>
     <img src={logo} />
-    <p>{text}</p>
+    <small>{text}</small>
   </Container>
 )
 

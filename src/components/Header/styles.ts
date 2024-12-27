@@ -8,18 +8,14 @@ export const HeaderContent = styled.div`
   height: 100%;
 `
 
-export const Title = styled.h1`
-  width: 302px;
-`
-
 export const Navbar = styled.nav`
-  font-size: 28px;
-  font-weight: ${weights.medium};
-  line-height: 33.6px;
+  font-weight: ${weights.regular};
+  font-size: 1rem;
+  line-height: 1.625rem;
 
   li {
     display: inline-block;
-    margin-left: 49px;
+    margin-left: 24px;
     cursor: pointer;
   }
 `

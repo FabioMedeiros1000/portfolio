@@ -2,17 +2,14 @@ import photo from '../../assets/minha-foto.png'
 import { GlobalContainer } from '../../styles'
 import Section from '../Section'
 
-import { SectionContent } from './styles'
+import { SectionContent, Title } from './styles'
 
 const About = () => (
   <Section backgroundColor="white">
     <GlobalContainer>
-      <h2>Sobre mim</h2>
+      <Title>Sobre mim</Title>
       <SectionContent>
-        <div>
-          <img src={photo} />
-          <h3>Fábio Medeiros</h3>
-        </div>
+        <img src={photo} />
         <p>
           Sou <b>desenvolvedor front-end</b> com uma paixão inabalável por criar
           interfaces bonitas, funcionais e intuitivas. Focado na{' '}
@@ -26,6 +23,7 @@ const About = () => (
           <b>projetos modernos e inovadores</b>.
         </p>
       </SectionContent>
+      <h3>Fábio Medeiros</h3>
     </GlobalContainer>
   </Section>
 )

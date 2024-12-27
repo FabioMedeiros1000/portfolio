@@ -8,7 +8,7 @@ export type SkillGroupProps = {
 const SkillGroup = ({ logo, text }: SkillGroupProps) => (
   <Group>
     <img src={logo} />
-    <h3>{text}</h3>
+    <p>{text}</p>
   </Group>
 )
 

@@ -2,29 +2,29 @@ import { GlobalContainer } from '../../styles'
 import Button from '../Button'
 import Section from '../Section'
 
-import { Input, FormData, FormGroup } from './styles'
+import { FormData, FormGroup, Title } from './styles'
 
 const Contact = () => (
   <Section backgroundColor="white">
     <GlobalContainer>
-      <h2>Contato</h2>
+      <Title>Contato</Title>
       <p>
         Fique à vontade para enviar uma mensagem. Estou sempre aberto a novas
         oportunidades e colaborações!
       </p>
       <form>
         <FormData>
-          <FormGroup size="520px">
+          <FormGroup size="333.33px">
             <p>Seu nome:</p>
-            <Input type="text" />
+            <input type="text" />
           </FormGroup>
-          <FormGroup size="746px">
+          <FormGroup size="666.66px">
             <p>Assunto:</p>
-            <Input type="text" />
+            <input type="text" />
           </FormGroup>
           <FormGroup size="100%">
             <p>Mensagem:</p>
-            <Input type="textarea" />
+            <textarea />
           </FormGroup>
         </FormData>
         <Button bgColor="red">Enviar</Button>

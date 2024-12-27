@@ -1,22 +1,23 @@
 import styled from 'styled-components'
-import { colors } from '../../variables'
 
 type Props = {
   size: string
 }
 
-export const Input = styled.input`
-  padding: 8px;
-  background-color: transparent;
-  border: 2px solid ${colors.red};
-  width: 100%;
+export const Title = styled.h2`
+  margin-bottom: 8px;
 `
 
 export const FormData = styled.div`
   display: flex;
-  gap: 16px 24px;
+  gap: 8px 24px;
   flex-wrap: wrap;
-  margin-bottom: 24px;
+  margin-top: 16px;
+  margin-bottom: 8px;
+
+  p {
+    font-weight: bold;
+  }
 `
 
 export const FormGroup = styled.div<Props>`

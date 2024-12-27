@@ -1,6 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components'
 
-import { weights } from './variables'
+import { colors, weights } from './variables'
 
 const GlobalStyle = createGlobalStyle`
     * {
@@ -12,35 +12,56 @@ const GlobalStyle = createGlobalStyle`
     body {
         font-family: Roboto, sans-serif;
         font-weight: ${weights.regular};
-        font-size: 18px;
-        line-height: 35.2px;
+        font-size: 1rem;
+        line-height: 1.625rem;
     }
 
     h1 {
-        font-size: 64px;
+        font-size: 3rem;
         font-weight: ${weights.bold};
-        line-height: 72px;
+        line-height: 3.625rem;
     }
 
     h2 {
-        font-size: 40px;
-        font-weight: ${weights.bold};
-        line-height: 48px;
+        font-size: 2.25rem;
+        font-weight: ${weights.medium};
+        line-height: 2.9375rem;
     }
 
     h3 {
-        font-size: 28px;
+        font-size: 1.75rem;
         font-weight: ${weights.medium};
-        line-height: 33.6px;
+        line-height: 2.4375rem;
     }
 
     li {
         list-style: none;
     }
+
+    input, textarea {
+      padding: 8px;
+      background-color: transparent;
+      border: 1px solid ${colors.red};
+      width: 100%;
+      border-radius: 5px;
+      color: ${colors.red};
+      font-family: Roboto, sans-serif;
+      font-size: 1rem;
+    }
+
+    input:focus, textarea:focus {
+      border: 2px solid ${colors.blue};
+      outline: none;
+    }
+
+    textarea {
+      height: 150px;
+      resize: none;
+    }
 `
 
 export const GlobalContainer = styled.div`
-  max-width: 1290px;
+  max-width: 1024px;
   margin: 0 auto;
 `
 

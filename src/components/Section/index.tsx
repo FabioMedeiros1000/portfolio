@@ -1,4 +1,4 @@
-import { Container } from './styles'
+import { SectionContainer } from './styles'
 
 export type Props = {
   backgroundColor: 'red' | 'white' | 'blue'
@@ -6,10 +6,10 @@ export type Props = {
   padding?: React.ReactNode
 }
 
-const Section = ({ backgroundColor, children, padding = 16 }: Props) => (
-  <Container padding={padding} backgroundColor={backgroundColor}>
+const Section = ({ backgroundColor, children, padding = 24 }: Props) => (
+  <SectionContainer padding={padding} backgroundColor={backgroundColor}>
     {children}
-  </Container>
+  </SectionContainer>
 )
 
 export default Section

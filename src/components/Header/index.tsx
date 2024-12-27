@@ -1,12 +1,12 @@
 import { GlobalContainer } from '../../styles'
 import Section from '../Section'
-import { HeaderContent, Navbar, Title } from './styles'
+import { HeaderContent, Navbar } from './styles'
 
 const Header = () => (
-  <Section padding={32} backgroundColor="red">
+  <Section padding={40} backgroundColor="red">
     <GlobalContainer>
       <HeaderContent>
-        <Title>Front-End Developer</Title>
+        <h1>Front-End Developer</h1>
         <Navbar>
           <ul>
             <li>Sobre mim</li>

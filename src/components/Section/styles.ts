@@ -22,12 +22,8 @@ function getTextColor(backgroundColor: string) {
   return colors.red
 }
 
-export const Container = styled.div<Omit<Props, 'children'>>`
+export const SectionContainer = styled.div<Omit<Props, 'children'>>`
   background-color: ${(props) => getBackgroundColor(props.backgroundColor)};
   color: ${(props) => getTextColor(props.backgroundColor)};
   padding: ${(props) => `${props.padding}px 0`};
-
-  h2 {
-    margin-bottom: 8px;
-  }
 `
