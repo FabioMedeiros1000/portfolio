@@ -1,9 +1,13 @@
+import { useRef, useState } from 'react'
+
 import Card, { CardProps } from '../Card'
 import Section from '../Section'
 
 import { Grid, Title } from './styles'
 
 import { GlobalContainer } from '../../styles'
+import { ModalHandles } from '../Modal'
+import ModalProject from '../ModalProject'
 
 const items: CardProps[] = [
   {
@@ -41,27 +45,41 @@ const items: CardProps[] = [
 ]
 
 const Projects = () => {
+  const [selectProject, setSelectProject] = useState<string>('')
+  const [text, setText] = useState('')
+  const modalRef = useRef<ModalHandles>(null)
+
   function trimText(text: string) {
     const maxLength = 175
     return text.slice(0, maxLength - 3) + '...'
   }
 
+  function handleCardClick(title: string, text: string) {
+    setSelectProject(title)
+    setText(text)
+    modalRef.current?.openModal()
+  }
+
   return (
     <Section backgroundColor="white" id="projects">
-      <GlobalContainer>
-        <Title>Projetos</Title>
-        <Grid>
-          {items.map((item, index) => (
-            <li key={index}>
-              <Card
-                titleCard={item.titleCard}
-                text={trimText(item.text)}
-                title={`Clique aqui para ver mais detalhes sobre o projeto ${item.titleCard}`}
-              />
-            </li>
-          ))}
-        </Grid>
-      </GlobalContainer>
+      <>
+        <GlobalContainer>
+          <Title>Projetos</Title>
+          <Grid>
+            {items.map((item, index) => (
+              <li key={index}>
+                <Card
+                  titleCard={item.titleCard}
+                  text={trimText(item.text)}
+                  title={`Clique aqui para ver mais detalhes sobre o projeto ${item.titleCard}`}
+                  onClick={() => handleCardClick(item.titleCard, item.text)}
+                />
+              </li>
+            ))}
+          </Grid>
+        </GlobalContainer>
+        <ModalProject ref={modalRef} title={selectProject} text={text} />
+      </>
     </Section>
   )
 }
