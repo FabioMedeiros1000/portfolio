@@ -4,10 +4,6 @@ type Props = {
   size: string
 }
 
-export const Title = styled.h2`
-  margin-bottom: 8px;
-`
-
 export const FormData = styled.div`
   display: flex;
   gap: 8px 24px;

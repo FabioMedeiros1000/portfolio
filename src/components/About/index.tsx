@@ -1,13 +1,15 @@
-import photo from '../../assets/minha-foto.png'
-import { GlobalContainer } from '../../styles'
 import Section from '../Section'
 
-import { SectionContent, Title } from './styles'
+import photo from '../../assets/minha-foto.png'
+
+import { SectionContent } from './styles'
+
+import { GlobalContainer, TitleGlobal } from '../../styles'
 
 const About = () => (
-  <Section backgroundColor="white">
+  <Section backgroundColor="white" id="about">
     <GlobalContainer>
-      <Title>Sobre mim</Title>
+      <TitleGlobal>Sobre mim</TitleGlobal>
       <SectionContent>
         <img src={photo} />
         <p>

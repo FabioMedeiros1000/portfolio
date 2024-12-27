@@ -1,13 +1,14 @@
-import { GlobalContainer } from '../../styles'
 import Button from '../Button'
 import Section from '../Section'
 
-import { FormData, FormGroup, Title } from './styles'
+import { FormData, FormGroup } from './styles'
+
+import { GlobalContainer, TitleGlobal } from '../../styles'
 
 const Contact = () => (
-  <Section backgroundColor="white">
+  <Section backgroundColor="white" id="contact">
     <GlobalContainer>
-      <Title>Contato</Title>
+      <TitleGlobal>Contato</TitleGlobal>
       <p>
         Fique à vontade para enviar uma mensagem. Estou sempre aberto a novas
         oportunidades e colaborações!

@@ -1,6 +1,6 @@
-import { GlobalContainer } from '../../styles'
 import FooterGroup from '../FooterGroup'
 import Section from '../Section'
+
 import { FooterProps } from '../FooterGroup'
 
 import email from '../../assets/logos/gmail.svg'
@@ -9,6 +9,8 @@ import telefone from '../../assets/logos/telefone.svg'
 import github from '../../assets/logos/github.svg'
 
 import { FooterGrid } from './styles'
+
+import { GlobalContainer } from '../../styles'
 
 const items: FooterProps[] = [
   {

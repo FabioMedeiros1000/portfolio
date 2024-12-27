@@ -1,12 +1,12 @@
-import { GlobalContainer } from '../../styles'
 import Button from '../Button'
 import Section from '../Section'
-import { Title } from './styles'
+
+import { GlobalContainer, TitleGlobal } from '../../styles'
 
 const Resume = () => (
-  <Section backgroundColor="red">
+  <Section backgroundColor="red" id="resume">
     <GlobalContainer>
-      <Title>Currículo</Title>
+      <TitleGlobal>Currículo</TitleGlobal>
       <p>
         Confira minha trajetória e habilidades técnicas em detalhes. Baixe meu
         currículo e conheça mais sobre meu trabalho e projetos realizados.

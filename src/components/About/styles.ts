@@ -5,7 +5,3 @@ export const SectionContent = styled.div`
   align-items: center;
   column-gap: 24px;
 `
-
-export const Title = styled.h2`
-  margin-bottom: 8px;
-`

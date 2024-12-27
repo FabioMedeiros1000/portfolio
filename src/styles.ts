@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
     }
 
-    body {
+    body, nav {
         font-family: Roboto, sans-serif;
         font-weight: ${weights.regular};
         font-size: 1rem;
@@ -38,6 +38,11 @@ const GlobalStyle = createGlobalStyle`
         list-style: none;
     }
 
+    a {
+      text-decoration: none;
+      color: ${colors.white};
+    }
+
     input, textarea {
       padding: 8px;
       background-color: transparent;
@@ -63,6 +68,10 @@ const GlobalStyle = createGlobalStyle`
 export const GlobalContainer = styled.div`
   max-width: 1024px;
   margin: 0 auto;
+`
+
+export const TitleGlobal = styled.h2`
+  margin-bottom: 8px;
 `
 
 export default GlobalStyle

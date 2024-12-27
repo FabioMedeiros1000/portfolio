@@ -1,9 +1,7 @@
 import Section from '../Section'
-import { Content } from './styles'
 import SkillGroup from '../SkillGroup'
-import { SkillGroupProps } from '../SkillGroup'
 
-import { GlobalContainer } from '../../styles'
+import { SkillGroupProps } from '../SkillGroup'
 
 import html from '../../assets/logos/html.svg'
 import css from '../../assets/logos/css.svg'
@@ -14,6 +12,10 @@ import redux from '../../assets/logos/redux.svg'
 import next from '../../assets/logos/next.svg'
 import git from '../../assets/logos/git.svg'
 import sass from '../../assets/logos/sass.svg'
+
+import { Content } from './styles'
+
+import { GlobalContainer } from '../../styles'
 
 const skills: SkillGroupProps[] = [
   {
@@ -55,7 +57,7 @@ const skills: SkillGroupProps[] = [
 ]
 
 const Skills = () => (
-  <Section backgroundColor="red">
+  <Section backgroundColor="red" id="skills">
     <GlobalContainer>
       <h2>Habilidades principais</h2>
       <Content>
