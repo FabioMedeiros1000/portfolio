@@ -3,6 +3,7 @@ import { Body, CardContainer, Header } from './styles'
 export type CardProps = {
   titleCard: string
   text: string
+  stacks?: string[]
 } & React.HTMLAttributes<HTMLDivElement>
 
 const Card = ({ titleCard, text, ...rest }: CardProps) => (

@@ -13,4 +13,5 @@ export const ButtonContainer = styled.button<Omit<Props, 'children'>>`
   border-radius: 8px;
   cursor: pointer;
   margin-top: 8px;
+  display: inline-block;
 `

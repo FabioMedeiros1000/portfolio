@@ -12,19 +12,41 @@ const Header = () => (
         <Navbar>
           <ul>
             <li>
-              <a href="#about">Sobre mim</a>
+              <a href="#about" title="Clique aqui para ver mais sobre mim">
+                Sobre mim
+              </a>
             </li>
             <li>
-              <a href="#skills">Habilidades principais</a>
+              <a
+                href="#skills"
+                title="Clique aqui para ver as minhas habilidades principais"
+              >
+                Habilidades principais
+              </a>
             </li>
             <li>
-              <a href="#projects">Projetos</a>
+              <a
+                href="#projects"
+                title="Clique aqui para ver alguns projetos que já desenvolvi"
+              >
+                Projetos
+              </a>
             </li>
             <li>
-              <a href="#resume">Currículo</a>
+              <a
+                href="#resume"
+                title="Clique aqui para ter acesso ao meu currículo"
+              >
+                Currículo
+              </a>
             </li>
             <li>
-              <a href="#contact">Contato</a>
+              <a
+                href="#contact"
+                title="Clique aqui para mandar uma mensagem para mim"
+              >
+                Contato
+              </a>
             </li>
           </ul>
         </Navbar>

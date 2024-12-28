@@ -9,7 +9,7 @@ export const Dialog = styled.dialog`
   transform: translate(-50%, -50%);
   border: none;
 
-  img {
+  > img {
     position: absolute;
     top: 24px;
     right: 24px;

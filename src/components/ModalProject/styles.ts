@@ -7,15 +7,22 @@ export const Container = styled.div`
   background-color: ${colors.red};
   color: ${colors.white};
 
-  img {
+  > img {
     width: 100%;
   }
 
   p {
-    margin-bottom: 24px;
+    margin-bottom: 8px;
   }
 
   ${ButtonContainer} {
     margin-right: 16px;
   }
+`
+
+export const Skills = styled.div`
+  margin-top: 24px;
+
+  display: flex;
+  gap: 16px;
 `

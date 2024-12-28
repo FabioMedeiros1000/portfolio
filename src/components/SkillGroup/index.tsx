@@ -2,11 +2,12 @@ import { Group } from './styles'
 
 export type SkillGroupProps = {
   logo: string
-  text: string
+  text?: string
+  size?: string
 }
 
-const SkillGroup = ({ logo, text }: SkillGroupProps) => (
-  <Group>
+const SkillGroup = ({ logo, text, size = '128px' }: SkillGroupProps) => (
+  <Group size={size}>
     <img src={logo} />
     <p>{text}</p>
   </Group>

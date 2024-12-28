@@ -3,15 +3,7 @@ import SkillGroup from '../SkillGroup'
 
 import { SkillGroupProps } from '../SkillGroup'
 
-import html from '../../assets/logos/html.svg'
-import css from '../../assets/logos/css.svg'
-import javascript from '../../assets/logos/javascript.svg'
-import typescript from '../../assets/logos/typescript.svg'
-import react from '../../assets/logos/react.svg'
-import redux from '../../assets/logos/redux.svg'
-import next from '../../assets/logos/next.svg'
-import git from '../../assets/logos/git.svg'
-import sass from '../../assets/logos/sass.svg'
+import logos from '../../utils/logos'
 
 import { Content } from './styles'
 
@@ -20,39 +12,43 @@ import { GlobalContainer } from '../../styles'
 const skills: SkillGroupProps[] = [
   {
     text: 'HTML',
-    logo: html
+    logo: logos.html
   },
   {
     text: 'CSS',
-    logo: css
+    logo: logos.css
   },
   {
     text: 'JavaScript',
-    logo: javascript
+    logo: logos.javascript
   },
   {
     text: 'TypeScript',
-    logo: typescript
+    logo: logos.typescript
   },
   {
     text: 'React',
-    logo: react
+    logo: logos.react
   },
   {
     text: 'Redux',
-    logo: redux
+    logo: logos.redux
   },
   {
     text: 'Next.js',
-    logo: next
+    logo: logos.next
   },
   {
     text: 'Git',
-    logo: git
+    logo: logos.git
   },
   {
     text: 'SASS',
-    logo: sass
+    logo: logos.sass
+  },
+  {
+    text: 'Bootstrap',
+    logo: logos.bootstrap
   }
 ]
 

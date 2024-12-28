@@ -9,6 +9,10 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body, nav {
         font-family: Roboto, sans-serif;
         font-weight: ${weights.regular};

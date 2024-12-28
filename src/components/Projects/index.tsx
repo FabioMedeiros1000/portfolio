@@ -3,6 +3,8 @@ import { useRef, useState } from 'react'
 import Card, { CardProps } from '../Card'
 import Section from '../Section'
 
+import logos from '../../utils/logos'
+
 import { Grid, Title } from './styles'
 
 import { GlobalContainer } from '../../styles'
@@ -12,41 +14,51 @@ import ModalProject from '../ModalProject'
 const items: CardProps[] = [
   {
     titleCard: 'EFOOD',
-    text: 'eFood é uma aplicação de loja online onde usuários podem explorar restaurantes e seus pratos disponíveis. Ao acessar a página de um restaurante, é possível visualizar os pratos oferecidos e adicionar os itens desejados ao carrinho, além de ver informações detalhadas sobre cada prato.'
+    text: 'eFood é uma aplicação de loja online onde usuários podem explorar restaurantes e seus pratos disponíveis. Ao acessar a página de um restaurante, é possível visualizar os pratos oferecidos e adicionar os itens desejados ao carrinho, além de ver informações detalhadas sobre cada prato.',
+    stacks: [logos.html, logos.css, logos.typescript, logos.react, logos.redux]
   },
   {
     titleCard: 'Agenda de contatos',
-    text: 'A Agenda de Contatos é uma aplicação web intuitiva e funcional desenvolvida para facilitar o gerenciamento de seus contatos pessoais ou profissionais. Com ela, é possível cadastrar, visualizar, editar e excluir contatos, armazenando informações essenciais como nome, e-mail e número de telefone. A interface amigável torna a experiência de uso simples e eficiente, permitindo que você organize seus contatos de maneira rápida e prática.'
+    text: 'A Agenda de Contatos é uma aplicação web intuitiva e funcional desenvolvida para facilitar o gerenciamento de seus contatos pessoais ou profissionais. Com ela, é possível cadastrar, visualizar, editar e excluir contatos, armazenando informações essenciais como nome, e-mail e número de telefone. A interface amigável torna a experiência de uso simples e eficiente, permitindo que você organize seus contatos de maneira rápida e prática.',
+    stacks: [logos.html, logos.css, logos.typescript, logos.react, logos.redux]
   },
   {
     titleCard: 'Todo-list',
-    text: 'Este é um projeto de Todo List desenvolvido em React, criado utilizando o create-react-app. O objetivo deste projeto é gerenciar tarefas, permitindo criar, editar, remover e filtrar tarefas de acordo com diferentes critérios.'
+    text: 'Este é um projeto de Todo List desenvolvido em React, criado utilizando o create-react-app. O objetivo deste projeto é gerenciar tarefas, permitindo criar, editar, remover e filtrar tarefas de acordo com diferentes critérios.',
+    stacks: [logos.html, logos.css, logos.typescript, logos.react, logos.redux]
   },
   {
     titleCard: 'Calculadora IMC',
-    text: 'Este projeto é uma aplicação simples de calculadora de Índice de Massa Corporal (IMC), desenvolvida para ajudar a determinar a faixa de peso corporal com base na altura e peso do usuário.'
+    text: 'Este projeto é uma aplicação simples de calculadora de Índice de Massa Corporal (IMC), desenvolvida para ajudar a determinar a faixa de peso corporal com base na altura e peso do usuário.',
+    stacks: [logos.html, logos.css, logos.javascript, logos.react]
   },
   {
     titleCard: 'Clone do Disney+',
-    text: 'Experimente uma recriação imersiva da interface do Disney Plus, com funcionalidades que simulam a experiência de navegação original. Este projeto destaca a integração de navegação, interatividade com JavaScript, e uso de tecnologias modernas de front-end.'
+    text: 'Experimente uma recriação imersiva da interface do Disney Plus, com funcionalidades que simulam a experiência de navegação original. Este projeto destaca a integração de navegação, interatividade com JavaScript, e uso de tecnologias modernas de front-end.',
+    stacks: [logos.html, logos.css, logos.javascript]
   },
   {
     titleCard: 'Quiz',
-    text: 'Quiz Interativo, desenvolvido para o desafio promovido pela Imersão Dev da Alura em parceria com o Google Gemini. O projeto é um quiz dinâmico, onde os jogadores podem escolher categorias, responder perguntas e verificar a pontuação no final.'
+    text: 'Quiz Interativo, desenvolvido para o desafio promovido pela Imersão Dev da Alura em parceria com o Google Gemini. O projeto é um quiz dinâmico, onde os jogadores podem escolher categorias, responder perguntas e verificar a pontuação no final.',
+    stacks: [logos.html, logos.css, logos.javascript]
   },
   {
     titleCard: 'FilmeFlix',
-    text: 'Uma landing page interativa e visualmente atraente que exibe os filmes do Homem-Aranha com categorização por ator. Destaca-se pelo design criativo e funcionalidades de listagem e filtragem.'
+    text: 'Uma landing page interativa e visualmente atraente que exibe os filmes do Homem-Aranha com categorização por ator. Destaca-se pelo design criativo e funcionalidades de listagem e filtragem.',
+    stacks: [logos.html, logos.css, logos.javascript]
   },
   {
     titleCard: 'TechBooks',
-    text: 'TechBooks possui uma interface intuitiva e responsiva, onde os usuários podem navegar por categorias de produtos como smartphones, tablets, notebooks e PCs. A plataforma inclui um menu dinâmico e adaptável que facilita a busca por produtos específicos.'
+    text: 'TechBooks possui uma interface intuitiva e responsiva, onde os usuários podem navegar por categorias de produtos como smartphones, tablets, notebooks e PCs. A plataforma inclui um menu dinâmico e adaptável que facilita a busca por produtos específicos.',
+    stacks: [logos.html, logos.css, logos.bootstrap]
   }
 ]
 
 const Projects = () => {
   const [selectProject, setSelectProject] = useState<string>('')
   const [text, setText] = useState('')
+  const [stacks, setStacks] = useState<string[]>([])
+
   const modalRef = useRef<ModalHandles>(null)
 
   function trimText(text: string) {
@@ -54,9 +66,10 @@ const Projects = () => {
     return text.slice(0, maxLength - 3) + '...'
   }
 
-  function handleCardClick(title: string, text: string) {
+  function handleCardClick(title: string, text: string, stacks: string[]) {
     setSelectProject(title)
     setText(text)
+    setStacks(stacks)
     modalRef.current?.openModal()
   }
 
@@ -72,13 +85,20 @@ const Projects = () => {
                   titleCard={item.titleCard}
                   text={trimText(item.text)}
                   title={`Clique aqui para ver mais detalhes sobre o projeto ${item.titleCard}`}
-                  onClick={() => handleCardClick(item.titleCard, item.text)}
+                  onClick={() =>
+                    handleCardClick(item.titleCard, item.text, item.stacks!)
+                  }
                 />
               </li>
             ))}
           </Grid>
         </GlobalContainer>
-        <ModalProject ref={modalRef} title={selectProject} text={text} />
+        <ModalProject
+          ref={modalRef}
+          title={selectProject}
+          text={text}
+          stacks={stacks}
+        />
       </>
     </Section>
   )
