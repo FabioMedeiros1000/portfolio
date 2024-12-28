@@ -17,13 +17,8 @@ const ModalProject = forwardRef(({ title, text }: Props, ref) => {
     modalRef.current?.openModal()
   }
 
-  function closeModal() {
-    modalRef.current?.closeModal()
-  }
-
   useImperativeHandle(ref, () => ({
-    openModal,
-    closeModal
+    openModal
   }))
 
   return (
