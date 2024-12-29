@@ -10,34 +10,42 @@ type Props = {
   title: string
   text: string
   stacks: string[]
+  githubLink: string
+  demoLink: string
 }
 
-const ModalProject = forwardRef(({ title, text, stacks }: Props, ref) => {
-  const modalRef = useRef<ModalHandles>(null)
+const ModalProject = forwardRef(
+  ({ title, text, stacks, githubLink, demoLink }: Props, ref) => {
+    const modalRef = useRef<ModalHandles>(null)
 
-  function openModal() {
-    modalRef.current?.openModal()
+    function openModal() {
+      modalRef.current?.openModal()
+    }
+
+    useImperativeHandle(ref, () => ({
+      openModal
+    }))
+
+    return (
+      <Modal ref={modalRef} titleModal={title}>
+        <Container>
+          <p>{text}</p>
+          <h3>Links úteis</h3>
+          <a href={githubLink} target="_blank">
+            <Button bgColor="white">Projeto no Github</Button>
+          </a>
+          <a href={demoLink} target="_blank">
+            <Button bgColor="white">Demonstração do projeto</Button>
+          </a>
+          <Skills>
+            {stacks.map((stack, index) => (
+              <SkillGroup key={index} logo={stack} size="40px" />
+            ))}
+          </Skills>
+        </Container>
+      </Modal>
+    )
   }
-
-  useImperativeHandle(ref, () => ({
-    openModal
-  }))
-
-  return (
-    <Modal ref={modalRef} titleModal={title}>
-      <Container>
-        <p>{text}</p>
-        <h3>Links úteis</h3>
-        <Button bgColor="white">Projeto no Github</Button>
-        <Button bgColor="white">Demonstração do projeto</Button>
-        <Skills>
-          {stacks.map((stack, index) => (
-            <SkillGroup key={index} logo={stack} size="40px" />
-          ))}
-        </Skills>
-      </Container>
-    </Modal>
-  )
-})
+)
 
 export default ModalProject

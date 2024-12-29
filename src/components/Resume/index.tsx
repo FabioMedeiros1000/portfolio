@@ -11,9 +11,11 @@ const Resume = () => (
         Confira minha trajetória e habilidades técnicas em detalhes. Baixe meu
         currículo e conheça mais sobre meu trabalho e projetos realizados.
       </p>
-      <Button bgColor="white" title="Clique aqui para baixar o meu currículo">
-        Baixar currículo
-      </Button>
+      <a href="/curriculo.pdf" download>
+        <Button bgColor="white" title="Clique aqui para baixar o meu currículo">
+          Baixar currículo
+        </Button>
+      </a>
     </GlobalContainer>
   </Section>
 )
