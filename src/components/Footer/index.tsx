@@ -15,19 +15,27 @@ import { GlobalContainer } from '../../styles'
 const items: FooterProps[] = [
   {
     logo: email,
-    text: 'fabio.leandro.medeiros@gmail.com'
+    text: 'fabio.leandro.medeiros@gmail.com',
+    link: 'mailto:fabio.leandro.medeiros@gmail.com',
+    alt: 'Meu email'
   },
   {
     logo: linkedin,
-    text: 'https://www.linkedin.com/in/fab-leandro/'
+    text: 'https://www.linkedin.com/in/fab-leandro/',
+    link: 'https://www.linkedin.com/in/fab-leandro/',
+    alt: 'Meu linkedin'
   },
   {
     logo: telefone,
-    text: '+55 (82) 99187-1637'
+    text: '+55 (82) 99187-1637',
+    link: 'https://wa.me/5582991871637',
+    alt: 'Meu número de telefone'
   },
   {
     logo: github,
-    text: 'https://github.com/FabioMedeiros1000'
+    text: 'https://github.com/FabioMedeiros1000',
+    link: 'https://github.com/FabioMedeiros1000',
+    alt: 'Meu github'
   }
 ]
 
@@ -37,7 +45,12 @@ const Footer = () => (
       <FooterGrid>
         {items.map((item, index) => (
           <li key={index}>
-            <FooterGroup logo={item.logo} text={item.text} />
+            <FooterGroup
+              logo={item.logo}
+              text={item.text}
+              link={item.link}
+              alt={item.alt}
+            />
           </li>
         ))}
       </FooterGrid>
