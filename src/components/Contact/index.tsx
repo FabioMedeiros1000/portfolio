@@ -1,17 +1,48 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
+import { useForm } from 'react-hook-form'
 
 import Button from '../Button'
 import Section from '../Section'
+import ModalMessage from '../ModalMessage'
 
 import { ModalHandles } from '../Modal'
+import { sendEmail } from '../../services/emailService'
 
 import { FormData, FormGroup } from './styles'
-
 import { GlobalContainer, TitleGlobal } from '../../styles'
-import ModalMessage from '../ModalMessage'
+
+export type FormType = {
+  name: string
+  email: string
+  subject: string
+  message: string
+}
 
 const Contact = () => {
   const modalRef = useRef<ModalHandles>(null)
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm<FormType>()
+
+  const [isSendSuccess, setIsSendSuccess] = useState<boolean | null>(null)
+
+  const onSubmit = async (data: FormType): Promise<void> => {
+    try {
+      await sendEmail(data)
+      setIsSendSuccess(true)
+    } catch (error) {
+      setIsSendSuccess(false)
+    } finally {
+      modalRef.current?.openModal()
+    }
+  }
+
+  const handleModalClose = () => {
+    setIsSendSuccess(null)
+  }
 
   return (
     <Section backgroundColor="white" id="contact">
@@ -22,31 +53,67 @@ const Contact = () => {
             Fique à vontade para enviar uma mensagem. Estou sempre aberto a
             novas oportunidades e colaborações!
           </p>
-          <div>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <FormData>
               <FormGroup size="333.33px">
                 <p>Seu nome:</p>
-                <input type="text" />
+                <input
+                  type="text"
+                  {...register('name', {
+                    required: 'Este campo é obrigatório.'
+                  })}
+                />
+                {errors.name && <small>{errors.name.message}</small>}
               </FormGroup>
               <FormGroup size="666.66px">
+                <p>Email:</p>
+                <input
+                  type="email"
+                  {...register('email', {
+                    required: 'Este campo é obrigatório.',
+                    pattern: {
+                      value:
+                        /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                      message: 'O email digitado é inválido.'
+                    }
+                  })}
+                />
+                {errors.email && <small>{errors.email.message}</small>}
+              </FormGroup>
+              <FormGroup size="100%">
                 <p>Assunto:</p>
-                <input type="text" />
+                <input
+                  type="text"
+                  {...register('subject', {
+                    required: 'Este campo é obrigatório.'
+                  })}
+                />
+                {errors.subject && <small>{errors.subject.message}</small>}
               </FormGroup>
               <FormGroup size="100%">
                 <p>Mensagem:</p>
-                <textarea />
+                <textarea
+                  {...register('message', {
+                    required: 'Este campo é obrigatório.'
+                  })}
+                />
+                {errors.message && <small>{errors.message.message}</small>}
               </FormGroup>
             </FormData>
             <Button
+              type="submit"
               bgColor="red"
               title="Clique aqui para mandar essa mensagem para o meu email"
-              onClick={() => modalRef.current?.openModal()}
             >
               Enviar
             </Button>
-          </div>
+          </form>
         </GlobalContainer>
-        <ModalMessage ref={modalRef} />
+        <ModalMessage
+          ref={modalRef}
+          isSendSuccess={isSendSuccess}
+          onClose={handleModalClose}
+        />
       </>
     </Section>
   )

@@ -3,30 +3,71 @@ import { forwardRef, useImperativeHandle, useRef } from 'react'
 import Modal, { ModalHandles } from '../Modal'
 import { Container } from './styles'
 
-const ModalMessage = forwardRef((_props, ref) => {
-  const modalRef = useRef<ModalHandles>(null)
+type Props = {
+  isSendSuccess: boolean | null
+  onClose: () => void
+}
 
-  function openModal() {
-    modalRef.current?.openModal()
+const ModalMessage = forwardRef<ModalHandles, Props>(
+  ({ isSendSuccess, onClose }, ref) => {
+    const modalRef = useRef<ModalHandles>(null)
+
+    function openModal() {
+      modalRef.current?.openModal()
+    }
+
+    function closeModal() {
+      modalRef.current?.closeModal()
+      onClose()
+    }
+
+    useImperativeHandle(ref, () => ({
+      openModal,
+      closeModal
+    }))
+
+    return (
+      <>
+        {isSendSuccess !== null && (
+          <Modal
+            ref={modalRef}
+            titleModal={
+              isSendSuccess
+                ? 'Mensagem enviada com sucesso!'
+                : 'Algo deu errado ao enviar a mensagem!'
+            }
+          >
+            <Container>
+              {isSendSuccess ? (
+                <p>
+                  <b>Mensagem enviada com sucesso!</b>
+                  <br />
+                  Fico muito feliz por você ter entrado em contato! Assim que
+                  possível, responderei diretamente no seu e-mail!
+                </p>
+              ) : (
+                <p>
+                  <b>
+                    Infelizmente, não conseguimos enviar sua mensagem neste
+                    momento!
+                  </b>
+                  <br />
+                  Isso pode ter ocorrido devido a um erro no servidor ou
+                  problemas de conexão. Por favor: Verifique se os campos do
+                  formulário estão preenchidos corretamente e tente enviar a
+                  mensagem novamente. Se o problema persistir, entre em contato
+                  diretamente através do e-mail:
+                  fabio.leandro.medeiros@gmail.com.
+                  <br />
+                  Obrigado pela paciência!
+                </p>
+              )}
+            </Container>
+          </Modal>
+        )}
+      </>
+    )
   }
-
-  useImperativeHandle(ref, () => ({
-    openModal
-  }))
-
-  return (
-    <Modal ref={modalRef} titleModal="Mensagem enviada com sucesso!">
-      <Container>
-        <p>
-          <b>Obrigado pela sua mensagem!</b>
-          <br />
-          Fico muito feliz por você ter entrado em contato. Assim que possível,
-          responderei diretamente no seu e-mail. Sua mensagem é muito importante
-          para mim, e estou ansioso para conversar com você!
-        </p>
-      </Container>
-    </Modal>
-  )
-})
+)
 
 export default ModalMessage
