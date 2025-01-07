@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form'
 import Button from '../Button'
 import Section from '../Section'
 import ModalMessage from '../ModalMessage'
+import Loader from '../Loader'
 
 import { ModalHandles } from '../Modal'
 import { sendEmail } from '../../services/emailService'
@@ -28,14 +29,18 @@ const Contact = () => {
   } = useForm<FormType>()
 
   const [isSendSuccess, setIsSendSuccess] = useState<boolean | null>(null)
+  const [isLoading, setIsLoading] = useState(false)
 
   const onSubmit = async (data: FormType): Promise<void> => {
+    setIsLoading(true)
+
     try {
       await sendEmail(data)
       setIsSendSuccess(true)
     } catch (error) {
       setIsSendSuccess(false)
     } finally {
+      setIsLoading(false)
       modalRef.current?.openModal()
     }
   }
@@ -105,7 +110,7 @@ const Contact = () => {
               bgColor="red"
               title="Clique aqui para mandar essa mensagem para o meu email"
             >
-              Enviar
+              {isLoading ? <Loader /> : 'Enviar'}
             </Button>
           </form>
         </GlobalContainer>

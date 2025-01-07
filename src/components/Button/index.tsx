@@ -1,7 +1,7 @@
 import { ButtonContainer } from './styles'
 
 export type Props = {
-  children: string
+  children: React.ReactNode
   bgColor: 'red' | 'white'
   type?: 'button' | 'submit'
 } & React.ButtonHTMLAttributes<HTMLButtonElement>
