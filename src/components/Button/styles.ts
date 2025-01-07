@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors, weights } from '../../variables'
+import { breakpoints, colors, weights } from '../../variables'
 import { Props } from '.'
 
 export const ButtonContainer = styled.button<Omit<Props, 'children'>>`
@@ -14,4 +14,10 @@ export const ButtonContainer = styled.button<Omit<Props, 'children'>>`
   cursor: pointer;
   margin-top: 8px;
   display: inline-block;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    padding: 8px;
+    display: block;
+    width: 100%;
+  }
 `

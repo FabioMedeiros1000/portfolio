@@ -5,11 +5,12 @@ import Section from '../Section'
 
 import logos from '../../utils/logos'
 
-import { Grid, Title } from './styles'
+import { Grid, GridTablet, ScrollbarContainer, Title } from './styles'
 
 import { GlobalContainer } from '../../styles'
 import { ModalHandles } from '../Modal'
 import ModalProject from '../ModalProject'
+import Scrollbars from 'react-custom-scrollbars-2'
 
 type ModalState = {
   selectProject: string
@@ -105,8 +106,7 @@ const Projects = () => {
 
   const modalRef = useRef<ModalHandles>(null)
 
-  function trimText(text: string) {
-    const maxLength = 175
+  function trimText(text: string, maxLength = 175) {
     return text.slice(0, maxLength - 3) + '...'
   }
 
@@ -152,6 +152,48 @@ const Projects = () => {
               </li>
             ))}
           </Grid>
+          <GridTablet>
+            {items.map((item, index) => (
+              <li key={index}>
+                <Card
+                  titleCard={item.titleCard}
+                  text={trimText(item.text, 187)}
+                  title={`Clique aqui para ver mais detalhes sobre o projeto ${item.titleCard}`}
+                  onClick={() =>
+                    handleCardClick(
+                      item.titleCard,
+                      item.text,
+                      item.stacks!,
+                      item.links?.github!,
+                      item.links?.demo!
+                    )
+                  }
+                />
+              </li>
+            ))}
+          </GridTablet>
+          <ScrollbarContainer>
+            <Scrollbars style={{ height: 550 }}>
+              {items.map((item, index) => (
+                <li key={index}>
+                  <Card
+                    titleCard={item.titleCard}
+                    text={trimText(item.text)}
+                    title={`Clique aqui para ver mais detalhes sobre o projeto ${item.titleCard}`}
+                    onClick={() =>
+                      handleCardClick(
+                        item.titleCard,
+                        item.text,
+                        item.stacks!,
+                        item.links?.github!,
+                        item.links?.demo!
+                      )
+                    }
+                  />
+                </li>
+              ))}
+            </Scrollbars>
+          </ScrollbarContainer>
         </GlobalContainer>
         <ModalProject
           ref={modalRef}

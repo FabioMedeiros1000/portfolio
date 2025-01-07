@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { breakpoints } from '../../variables'
 
 export const Container = styled.div`
   display: flex;
@@ -8,5 +9,9 @@ export const Container = styled.div`
 
   img {
     width: 32px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    margin-bottom: 8px;
   }
 `

@@ -11,3 +11,8 @@ export const colors = {
   blue: '#1B2E3C',
   green: '#4FC3F7'
 }
+
+export const breakpoints = {
+  tablet: '768px',
+  pc: '1023px'
+}

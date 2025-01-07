@@ -11,7 +11,10 @@ const About = () => (
     <GlobalContainer>
       <TitleGlobal>Sobre mim</TitleGlobal>
       <SectionContent>
-        <img src={photo} />
+        <div>
+          <img src={photo} />
+          <h3>Fábio Medeiros</h3>
+        </div>
         <p>
           Sou <b>desenvolvedor front-end</b> com uma paixão inabalável por criar
           interfaces bonitas, funcionais e intuitivas. Focado na{' '}
@@ -25,7 +28,6 @@ const About = () => (
           <b>projetos modernos e inovadores</b>.
         </p>
       </SectionContent>
-      <h3>Fábio Medeiros</h3>
     </GlobalContainer>
   </Section>
 )

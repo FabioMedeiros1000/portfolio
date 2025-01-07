@@ -1,6 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components'
 
-import { colors, weights } from './variables'
+import { breakpoints, colors, weights } from './variables'
 
 const GlobalStyle = createGlobalStyle`
     * {
@@ -24,18 +24,36 @@ const GlobalStyle = createGlobalStyle`
         font-size: 3rem;
         font-weight: ${weights.bold};
         line-height: 3.625rem;
+
+        @media (max-width: ${breakpoints.pc}){
+          font-size: 3.1rem;
+          line-height: 3.2rem;
+        }
+
+        @media (max-width: ${breakpoints.tablet}){
+          font-size: 2.6rem;
+          line-height: 3.2rem;
+        }
     }
 
     h2 {
         font-size: 2.25rem;
         font-weight: ${weights.medium};
         line-height: 2.9375rem;
+
+        @media (max-width: ${breakpoints.tablet}){
+          font-size: 1.8rem;
+        }
     }
 
     h3 {
         font-size: 1.75rem;
         font-weight: ${weights.medium};
         line-height: 2.4375rem;
+
+        @media (max-width: ${breakpoints.tablet}){
+          font-size: 1.3rem;
+        }
     }
 
     li {
@@ -71,11 +89,24 @@ const GlobalStyle = createGlobalStyle`
 
 export const GlobalContainer = styled.div`
   max-width: 1024px;
+  width: 100%;
   margin: 0 auto;
+
+  @media (max-width: ${breakpoints.pc}) {
+    width: 90%;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 80%;
+  }
 `
 
 export const TitleGlobal = styled.h2`
   margin-bottom: 8px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    margin-bottom: 16px;
+  }
 `
 
 export default GlobalStyle

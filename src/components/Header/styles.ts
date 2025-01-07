@@ -1,17 +1,33 @@
 import styled from 'styled-components'
-import { colors } from '../../variables'
+import { breakpoints, colors } from '../../variables'
 
 export const HeaderContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: ${breakpoints.pc}) {
+    h1 {
+      width: min-content;
+    }
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    flex-wrap: wrap;
+  }
 `
 
 export const Navbar = styled.nav`
+  display: block;
+
   li {
     display: inline-block;
     margin-left: 24px;
     cursor: pointer;
+
+    @media (max-width: ${breakpoints.pc}) {
+      margin-left: 16px;
+    }
 
     a {
       position: relative;
@@ -32,5 +48,9 @@ export const Navbar = styled.nav`
     a:hover::before {
       width: 100%;
     }
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    display: none;
   }
 `

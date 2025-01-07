@@ -1,4 +1,5 @@
 import Section from '../Section'
+import Hamburger from '../Hamburger'
 
 import { HeaderContent, Navbar } from './styles'
 
@@ -9,6 +10,7 @@ const Header = () => (
     <GlobalContainer>
       <HeaderContent>
         <h1>Front-End Developer</h1>
+        <Hamburger />
         <Navbar>
           <ul>
             <li>

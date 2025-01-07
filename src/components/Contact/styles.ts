@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { breakpoints } from '../../variables'
 
 type Props = {
   size: string
@@ -14,8 +15,17 @@ export const FormData = styled.div`
   p {
     font-weight: bold;
   }
+
+  @media (max-width: ${breakpoints.pc}) {
+    display: block;
+  }
 `
 
 export const FormGroup = styled.div<Props>`
   width: ${(props) => props.size};
+
+  @media (max-width: ${breakpoints.pc}) {
+    width: 100%;
+    margin-bottom: 8px;
+  }
 `

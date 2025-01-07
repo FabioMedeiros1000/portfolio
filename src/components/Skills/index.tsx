@@ -5,9 +5,10 @@ import { SkillGroupProps } from '../SkillGroup'
 
 import logos from '../../utils/logos'
 
-import { Content } from './styles'
+import { ContentSkills } from './styles'
 
 import { GlobalContainer } from '../../styles'
+import SkillsCarousel from '../SkillsCarousel'
 
 const skills: SkillGroupProps[] = [
   {
@@ -56,13 +57,20 @@ const Skills = () => (
   <Section backgroundColor="red" id="skills">
     <GlobalContainer>
       <h2>Habilidades principais</h2>
-      <Content>
+      <ContentSkills>
         {skills.map((skill, index) => (
           <li key={index + 1}>
             <SkillGroup logo={skill.logo} text={skill.text} />
           </li>
         ))}
-      </Content>
+      </ContentSkills>
+      <SkillsCarousel>
+        {skills.map((skill, index) => (
+          <li key={index + 1}>
+            <SkillGroup logo={skill.logo} text={skill.text} size="50px" />
+          </li>
+        ))}
+      </SkillsCarousel>
     </GlobalContainer>
   </Section>
 )

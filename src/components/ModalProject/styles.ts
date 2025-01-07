@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../variables'
+import { breakpoints, colors } from '../../variables'
 import { ButtonContainer } from '../Button/styles'
 
 export const Container = styled.div`
@@ -17,6 +17,12 @@ export const Container = styled.div`
 
   ${ButtonContainer} {
     margin-right: 16px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    h3 {
+      margin-top: 16px;
+    }
   }
 `
 

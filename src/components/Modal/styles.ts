@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors, weights } from '../../variables'
+import { breakpoints, colors, weights } from '../../variables'
 
 export const Dialog = styled.dialog`
   width: 1076px;
@@ -14,6 +14,11 @@ export const Dialog = styled.dialog`
     top: 24px;
     right: 24px;
     cursor: pointer;
+
+    @media (max-width: ${breakpoints.tablet}) {
+      top: 8px;
+      right: 8px;
+    }
   }
 
   &::backdrop {
