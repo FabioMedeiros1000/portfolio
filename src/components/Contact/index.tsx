@@ -106,6 +106,7 @@ const Contact = () => {
               </FormGroup>
             </FormData>
             <Button
+              disabled={isLoading}
               type="submit"
               bgColor="red"
               title="Clique aqui para mandar essa mensagem para o meu email"
