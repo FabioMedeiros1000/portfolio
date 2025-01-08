@@ -4,7 +4,8 @@ export async function sendEmail(
   formData: FormType
 ): Promise<{ message: string }> {
   try {
-    const response = await fetch('http://localhost:5000/api/email', {
+    const API_URL = 'https://portfolio-backend-gomk.onrender.com'
+    const response = await fetch(`${API_URL}/api/email`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

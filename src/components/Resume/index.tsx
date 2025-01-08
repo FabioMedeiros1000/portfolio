@@ -2,7 +2,6 @@ import Button from '../Button'
 import Section from '../Section'
 
 import { GlobalContainer, TitleGlobal } from '../../styles'
-import Loader from '../Loader'
 
 const Resume = () => (
   <Section backgroundColor="red" id="resume">

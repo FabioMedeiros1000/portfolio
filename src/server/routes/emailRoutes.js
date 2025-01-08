@@ -13,8 +13,7 @@ router.post('/', async (req, res) => {
     return res.status(400).json({ success: false, error: 'Todos os campos são obrigatórios.' });
   }
 
-  const messageFinal = `
-  ${message}
+  const messageFinal = `${message}
 
   Email do remetente: ${email}
   Nome do remetente: ${name}
