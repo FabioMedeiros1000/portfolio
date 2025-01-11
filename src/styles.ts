@@ -3,88 +3,100 @@ import styled, { createGlobalStyle } from 'styled-components'
 import { breakpoints, colors, weights } from './variables'
 
 const GlobalStyle = createGlobalStyle`
-    * {
-        box-sizing: border-box;
-        padding: 0;
-        margin: 0;
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body, nav {
+    font-family: Roboto, sans-serif;
+    font-weight: ${weights.regular};
+    font-size: 1rem;
+    line-height: 1.625rem;
+  }
+
+  /* Tema claro */
+  body.light {
+    background-color: ${colors.white};
+    color: ${colors.red};
+  }
+
+  /* Tema escuro */
+  body.dark {
+    background-color: ${colors.red};
+    color: ${colors.white};
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: ${weights.bold};
+    line-height: 3.625rem;
+
+    @media (max-width: ${breakpoints.pc}) {
+      font-size: 3.1rem;
+      line-height: 3.2rem;
     }
 
-    html {
-      scroll-behavior: smooth;
+    @media (max-width: ${breakpoints.tablet}) {
+      font-size: 2.6rem;
+      line-height: 3.2rem;
     }
+  }
 
-    body, nav {
-        font-family: Roboto, sans-serif;
-        font-weight: ${weights.regular};
-        font-size: 1rem;
-        line-height: 1.625rem;
+  h2 {
+    font-size: 2.25rem;
+    font-weight: ${weights.medium};
+    line-height: 2.9375rem;
+
+    @media (max-width: ${breakpoints.tablet}) {
+      font-size: 1.8rem;
     }
+  }
 
-    h1 {
-        font-size: 3rem;
-        font-weight: ${weights.bold};
-        line-height: 3.625rem;
+  h3 {
+    font-size: 1.75rem;
+    font-weight: ${weights.medium};
+    line-height: 2.4375rem;
 
-        @media (max-width: ${breakpoints.pc}){
-          font-size: 3.1rem;
-          line-height: 3.2rem;
-        }
-
-        @media (max-width: ${breakpoints.tablet}){
-          font-size: 2.6rem;
-          line-height: 3.2rem;
-        }
+    @media (max-width: ${breakpoints.tablet}) {
+      font-size: 1.3rem;
     }
+  }
 
-    h2 {
-        font-size: 2.25rem;
-        font-weight: ${weights.medium};
-        line-height: 2.9375rem;
+  li {
+    list-style: none;
+  }
 
-        @media (max-width: ${breakpoints.tablet}){
-          font-size: 1.8rem;
-        }
-    }
+  a {
+    text-decoration: none;
+    color: ${colors.white};
+  }
 
-    h3 {
-        font-size: 1.75rem;
-        font-weight: ${weights.medium};
-        line-height: 2.4375rem;
+  input, textarea {
+    padding: 8px;
+    background-color: transparent;
+    border: 1px solid ${colors.red};
+    width: 100%;
+    border-radius: 5px;
+    color: ${colors.red};
+    font-family: Roboto, sans-serif;
+    font-size: 1rem;
+  }
 
-        @media (max-width: ${breakpoints.tablet}){
-          font-size: 1.3rem;
-        }
-    }
+  input:focus, textarea:focus {
+    border: 2px solid ${colors.blue};
+    outline: none;
+  }
 
-    li {
-        list-style: none;
-    }
-
-    a {
-      text-decoration: none;
-      color: ${colors.white};
-    }
-
-    input, textarea {
-      padding: 8px;
-      background-color: transparent;
-      border: 1px solid ${colors.red};
-      width: 100%;
-      border-radius: 5px;
-      color: ${colors.red};
-      font-family: Roboto, sans-serif;
-      font-size: 1rem;
-    }
-
-    input:focus, textarea:focus {
-      border: 2px solid ${colors.blue};
-      outline: none;
-    }
-
-    textarea {
-      height: 150px;
-      resize: none;
-    }
+  textarea {
+    height: 150px;
+    resize: none;
+  }
 `
 
 export const GlobalContainer = styled.div`

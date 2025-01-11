@@ -15,8 +15,8 @@ import { GlobalContainer } from '../../styles'
 const items: FooterProps[] = [
   {
     logo: email,
-    text: 'fabio.leandro.medeiros@gmail.com',
-    link: 'mailto:fabio.leandro.medeiros@gmail.com',
+    text: 'contato@fabiomedeirosdev.com',
+    link: 'mailto:contato@fabiomedeirosdev.com',
     alt: 'Meu email'
   },
   {

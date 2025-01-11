@@ -31,10 +31,10 @@ const ModalProject = forwardRef(
         <Container>
           <p>{text}</p>
           <h3>Links úteis</h3>
-          <a href={githubLink} target="_blank">
+          <a href={githubLink} target="_blank" tabIndex={-1}>
             <Button bgColor="white">Projeto no Github</Button>
           </a>
-          <a href={demoLink} target="_blank">
+          <a href={demoLink} target="_blank" tabIndex={-1}>
             <Button bgColor="white">Demonstração do projeto</Button>
           </a>
           <Skills>
