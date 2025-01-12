@@ -21,8 +21,8 @@ const items: FooterProps[] = [
   },
   {
     logo: linkedin,
-    text: 'https://www.linkedin.com/in/fab-leandro/',
-    link: 'https://www.linkedin.com/in/fab-leandro/',
+    text: 'https://www.linkedin.com/in/fabiomedeirosdev/',
+    link: 'https://www.linkedin.com/in/fabiomedeirosdev/',
     alt: 'Meu linkedin'
   },
   {
