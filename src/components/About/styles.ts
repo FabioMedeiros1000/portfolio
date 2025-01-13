@@ -8,6 +8,7 @@ export const SectionContent = styled.div`
 
   p {
     margin-top: 24px;
+    text-align: justify;
   }
 
   @media (max-width: ${breakpoints.pc}) {

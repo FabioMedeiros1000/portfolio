@@ -40,8 +40,8 @@ const items: CardProps[] = [
     }
   },
   {
-    titleCard: 'Todo-list',
-    text: 'Este é um projeto de Todo List desenvolvido em React, criado utilizando o create-react-app. O objetivo deste projeto é gerenciar tarefas, permitindo criar, editar, remover e filtrar tarefas de acordo com diferentes critérios.',
+    titleCard: 'To-do list',
+    text: 'Este é um projeto de to-do List desenvolvido em React, criado utilizando o create-react-app. O objetivo deste projeto é gerenciar tarefas, permitindo criar, editar, remover e filtrar tarefas de acordo com diferentes critérios.',
     stacks: [logos.html, logos.css, logos.typescript, logos.react, logos.redux],
     links: {
       github: 'https://github.com/FabioMedeiros1000/todo-react',

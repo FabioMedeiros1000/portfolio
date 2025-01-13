@@ -17,7 +17,7 @@ const About = () => (
         </div>
         <p>
           Sou <b>desenvolvedor front-end</b> com uma paixão inabalável por criar
-          interfaces bonitas, funcionais e intuitivas. Focado na{' '}
+          interfaces modernas, funcionais e intuitivas. Focado na{' '}
           <b>experiência do usuário</b>, dedico-me a transformar ideias em
           soluções visuais impactantes, acessíveis e alinhadas às melhores
           práticas do mercado. Minha motivação está em criar experiências
