@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
 
 import Button from '../Button'
 import Section from '../Section'
@@ -21,6 +22,7 @@ export type FormType = {
 
 const Contact = () => {
   const modalRef = useRef<ModalHandles>(null)
+  const { t } = useTranslation()
 
   const {
     register,
@@ -53,53 +55,50 @@ const Contact = () => {
     <Section backgroundColor="white" id="contact">
       <>
         <GlobalContainer>
-          <TitleGlobal>Contato</TitleGlobal>
-          <p>
-            Fique à vontade para enviar uma mensagem. Estou sempre aberto a
-            novas oportunidades e colaborações!
-          </p>
+          <TitleGlobal>{t('contact.title')}</TitleGlobal>
+          <p>{t('contact.description')}</p>
           <form onSubmit={handleSubmit(onSubmit)}>
             <FormData>
               <FormGroup size="333.33px">
-                <p>Seu nome:</p>
+                <p>{t('contact.input.name')}</p>
                 <input
                   type="text"
                   {...register('name', {
-                    required: 'Este campo é obrigatório.'
+                    required: t('contact.validationMessage.required')
                   })}
                 />
                 {errors.name && <small>{errors.name.message}</small>}
               </FormGroup>
               <FormGroup size="666.66px">
-                <p>Email:</p>
+                <p>{t('contact.input.email')}</p>
                 <input
                   type="email"
                   {...register('email', {
-                    required: 'Este campo é obrigatório.',
+                    required: t('contact.validationMessage.required'),
                     pattern: {
                       value:
                         /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-                      message: 'O email digitado é inválido.'
+                      message: t('contact.validationMessage.email')
                     }
                   })}
                 />
                 {errors.email && <small>{errors.email.message}</small>}
               </FormGroup>
               <FormGroup size="100%">
-                <p>Assunto:</p>
+                <p>{t('contact.input.subject')}</p>
                 <input
                   type="text"
                   {...register('subject', {
-                    required: 'Este campo é obrigatório.'
+                    required: t('contact.validationMessage.required')
                   })}
                 />
                 {errors.subject && <small>{errors.subject.message}</small>}
               </FormGroup>
               <FormGroup size="100%">
-                <p>Mensagem:</p>
+                <p>{t('contact.input.message')}</p>
                 <textarea
                   {...register('message', {
-                    required: 'Este campo é obrigatório.'
+                    required: t('contact.validationMessage.required')
                   })}
                 />
                 {errors.message && <small>{errors.message.message}</small>}
@@ -109,9 +108,9 @@ const Contact = () => {
               disabled={isLoading}
               type="submit"
               bgColor="red"
-              title="Clique aqui para mandar essa mensagem para o meu email"
+              title={t('contact.titleLabel')}
             >
-              {isLoading ? <Loader /> : 'Enviar'}
+              {isLoading ? <Loader /> : t('contact.buttonText')}
             </Button>
           </form>
         </GlobalContainer>

@@ -1,0 +1,100 @@
+{
+  "header": {
+    "about": "Sobre mim",
+    "skills": "Habilidades principais",
+    "projects": "Projetos",
+    "resume": "Currículo",
+    "contact": "Contato",
+    "titleLabel": {
+      "about": "Clique aqui para ver mais sobre mim",
+      "skills": "Clique aqui para ver as minhas habilidades principais",
+      "projects": "Clique aqui para ver alguns projetos que já desenvolvi",
+      "resume": "Clique aqui para ter acesso ao meu currículo",
+      "contact": "Clique aqui para mandar uma mensagem para mim"
+    }
+  },
+  "about": {
+    "title": "Sobre Mim",
+    "description": "Sou <b>desenvolvedor front-end</b> com uma paixão inabalável por criar interfaces modernas, funcionais e intuitivas. Focado na <b>experiência do usuário</b>, dedico-me a transformar ideias emsoluções visuais impactantes, acessíveis e alinhadas às melhores práticas do mercado. Minha motivação está em criar experiências digitais que conectem pessoas e tecnologia de forma eficiente. Além disso, estou sempre em busca de evolução, <b>aprendendo novas técnicas</b> e acompanhando as tendências mais recentes do desenvolvimento web, garantindo <b>projetos modernos e inovadores</b>."
+  },
+  "skills": {
+    "title": "Habilidades principais"
+  },
+  "projects": {
+    "title": "Projetos",
+    "itemsCard": {
+      "efood": {
+        "titleCard": "EFOOD",
+        "text": "eFood é uma aplicação de loja online onde usuários podem explorar restaurantes e seus pratos disponíveis. Ao acessar a página de um restaurante, é possível visualizar os pratos oferecidos e adicionar os itens desejados ao carrinho, além de ver informações detalhadas sobre cada prato."
+      },
+      "contactList": {
+        "titleCard": "Agenda de contatos",
+        "text": "A Agenda de Contatos é uma aplicação web intuitiva e funcional desenvolvida para facilitar o gerenciamento de seus contatos pessoais ou profissionais. Com ela, é possível cadastrar, visualizar, editar e excluir contatos, armazenando informações essenciais como nome, e-mail e número de telefone. A interface amigável torna a experiência de uso simples e eficiente, permitindo que você organize seus contatos de maneira rápida e prática."
+      },
+      "todoList": {
+        "titleCard": "To-do list",
+        "text": "Este é um projeto de to-do List desenvolvido em React, criado utilizando o create-react-app. O objetivo deste projeto é gerenciar tarefas, permitindo criar, editar, remover e filtrar tarefas de acordo com diferentes critérios."
+      },
+      "imcCalculator": {
+        "titleCard": "Calculadora IMC",
+        "text": "Este projeto é uma aplicação simples de calculadora de Índice de Massa Corporal (IMC), desenvolvida para ajudar a determinar a faixa de peso corporal com base na altura e peso do usuário."
+      },
+      "disneyClone": {
+        "titleCard": "Clone do Disney+",
+        "text": "Experimente uma recriação imersiva da interface do Disney Plus, com funcionalidades que simulam a experiência de navegação original. Este projeto destaca a integração de navegação, interatividade com JavaScript, e uso de tecnologias modernas de front-end."
+      },
+      "quiz": {
+        "titleCard": "Quiz",
+        "text": "Quiz Interativo, desenvolvido para o desafio promovido pela Imersão Dev da Alura em parceria com o Google Gemini. O projeto é um quiz dinâmico, onde os jogadores podem escolher categorias, responder perguntas e verificar a pontuação no final."
+      },
+      "filmeflix": {
+        "titleCard": "FilmeFlix",
+        "text": "Uma landing page interativa e visualmente atraente que exibe os filmes do Homem-Aranha com categorização por ator. Destaca-se pelo design criativo e funcionalidades de listagem e filtragem."
+      },
+      "techbooks": {
+        "titleCard": "TechBooks",
+        "text": "TechBooks possui uma interface intuitiva e responsiva, onde os usuários podem navegar por categorias de produtos como smartphones, tablets, notebooks e PCs. A plataforma inclui um menu dinâmico e adaptável que facilita a busca por produtos específicos."
+      }
+    },
+    "titleLabel": "Clique aqui para ver mais detalhes sobre o projeto"
+  },
+  "resume": {
+    "title": "Currículo",
+    "description": "Confira minha trajetória e habilidades técnicas em detalhes. Baixe meu currículo e conheça mais sobre meu trabalho e projetos realizados.",
+    "buttonText": "Baixar currículo",
+    "titleLabel": "Clique aqui para baixar o meu currículo"
+  },
+  "contact": {
+    "title": "Contato",
+    "description": "Fique à vontade para enviar uma mensagem. Estou sempre aberto a novas oportunidades e colaborações!",
+    "input": {
+      "name": "Seu nome:",
+      "email": "Email:",
+      "subject": "Assunto:",
+      "message": "Mensagem:"
+    },
+    "validationMessage": {
+      "required": "Este campo é obrigatório",
+      "email": "O email digitado é inválido"
+    },
+    "titleLabel": "Clique aqui para mandar essa mensagem para o meu email",
+    "buttonText": "Enviar"
+  },
+  "modalProject": {
+    "links": "Links úteis",
+    "button": {
+      "github": "Projeto no Github",
+      "demo": "Demonstração do projeto"
+    }
+  },
+  "modalMessage": {
+    "title": {
+      "success": "Mensagem enviada com sucesso!",
+      "failure": "Algo deu errado ao enviar a mensagem!"
+    },
+    "text": {
+      "success": "<b>Mensagem enviada com sucesso!</b><br />Fico muito feliz por você ter entrado em contato! Assim que possível, responderei diretamente no seu e-mail!",
+      "failure": "<b>Infelizmente, não conseguimos enviar sua mensagem neste momento!</b><br />Isso pode ter ocorrido devido a um erro no servidor ou problemas de conexão. Por favor: Verifique se os campos do formulário estão preenchidos corretamente e tente enviar a mensagem novamente. Se o problema persistir, entre em contato diretamente através do e-mail: fabio.leandro.medeiros@gmail.com. <br />Obrigado pela paciência!"
+    }
+  }
+}

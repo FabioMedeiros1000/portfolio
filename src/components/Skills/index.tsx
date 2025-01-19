@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next'
+
 import Section from '../Section'
 import SkillGroup from '../SkillGroup'
 
@@ -53,26 +55,30 @@ const skills: SkillGroupProps[] = [
   }
 ]
 
-const Skills = () => (
-  <Section backgroundColor="red" id="skills">
-    <GlobalContainer>
-      <h2>Habilidades principais</h2>
-      <ContentSkills>
-        {skills.map((skill, index) => (
-          <li key={index + 1}>
-            <SkillGroup logo={skill.logo} text={skill.text} />
-          </li>
-        ))}
-      </ContentSkills>
-      <SkillsCarousel>
-        {skills.map((skill, index) => (
-          <li key={index + 1}>
-            <SkillGroup logo={skill.logo} text={skill.text} size="50px" />
-          </li>
-        ))}
-      </SkillsCarousel>
-    </GlobalContainer>
-  </Section>
-)
+const Skills = () => {
+  const { t } = useTranslation()
+
+  return (
+    <Section backgroundColor="red" id="skills">
+      <GlobalContainer>
+        <h2>{t('skills.title')}</h2>
+        <ContentSkills>
+          {skills.map((skill, index) => (
+            <li key={index + 1}>
+              <SkillGroup logo={skill.logo} text={skill.text} />
+            </li>
+          ))}
+        </ContentSkills>
+        <SkillsCarousel>
+          {skills.map((skill, index) => (
+            <li key={index + 1}>
+              <SkillGroup logo={skill.logo} text={skill.text} size="50px" />
+            </li>
+          ))}
+        </SkillsCarousel>
+      </GlobalContainer>
+    </Section>
+  )
+}
 
 export default Skills

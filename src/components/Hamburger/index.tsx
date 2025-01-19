@@ -1,9 +1,12 @@
+import { useTranslation } from 'react-i18next'
 import { Fade } from 'hamburger-react'
 import { useState } from 'react'
+
 import { ContainerIcon, HamburgerContent } from './styles'
 
 const Hamburger = () => {
   const [isOpen, setOpen] = useState(false)
+  const { t } = useTranslation()
 
   const handleItemClick = () => {
     setOpen(false)
@@ -22,40 +25,28 @@ const Hamburger = () => {
       </ContainerIcon>
       <HamburgerContent className={isOpen ? 'is-open' : ''}>
         <li onClick={handleItemClick}>
-          <a href="#about" title="Clique aqui para ver mais sobre mim">
-            Sobre mim
+          <a href="#about" title={t('header.titleLabel.about')}>
+            {t('header.about')}
           </a>
         </li>
         <li onClick={handleItemClick}>
-          <a
-            href="#skills"
-            title="Clique aqui para ver as minhas habilidades principais"
-          >
-            Habilidades principais
+          <a href="#skills" title={t('header.titleLabel.skills')}>
+            {t('header.skills')}
           </a>
         </li>
         <li onClick={handleItemClick}>
-          <a
-            href="#projects"
-            title="Clique aqui para ver alguns projetos que já desenvolvi"
-          >
-            Projetos
+          <a href="#projects" title={t('header.titleLabel.projects')}>
+            {t('header.projects')}
           </a>
         </li>
         <li onClick={handleItemClick}>
-          <a
-            href="#resume"
-            title="Clique aqui para ter acesso ao meu currículo"
-          >
-            Currículo
+          <a href="#resume" title={t('header.titleLabel.resume')}>
+            {t('header.resume')}
           </a>
         </li>
         <li onClick={handleItemClick}>
-          <a
-            href="#contact"
-            title="Clique aqui para mandar uma mensagem para mim"
-          >
-            Contato
+          <a href="#contact" title={t('header.titleLabel.contact')}>
+            {t('header.contact')}
           </a>
         </li>
       </HamburgerContent>

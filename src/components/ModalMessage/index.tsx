@@ -1,4 +1,5 @@
 import { forwardRef, useImperativeHandle, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import Modal, { ModalHandles } from '../Modal'
 import { Container } from './styles'
@@ -11,6 +12,7 @@ type Props = {
 const ModalMessage = forwardRef<ModalHandles, Props>(
   ({ isSendSuccess, onClose }, ref) => {
     const modalRef = useRef<ModalHandles>(null)
+    const { t } = useTranslation()
 
     function openModal() {
       modalRef.current?.openModal()
@@ -31,35 +33,26 @@ const ModalMessage = forwardRef<ModalHandles, Props>(
         ref={modalRef}
         titleModal={
           isSendSuccess === true
-            ? 'Mensagem enviada com sucesso!'
+            ? t('modalMessage.title.success')
             : isSendSuccess === false
-              ? 'Algo deu errado ao enviar a mensagem!'
+              ? t('modalMessage.title.failure')
               : ''
         }
       >
         <Container>
           {isSendSuccess === true && (
-            <p>
-              <b>Mensagem enviada com sucesso!</b>
-              <br />
-              Fico muito feliz por você ter entrado em contato! Assim que
-              possível, responderei diretamente no seu e-mail!
-            </p>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: t('modalMessage.text.success')
+              }}
+            />
           )}
           {isSendSuccess === false && (
-            <p>
-              <b>
-                Infelizmente, não conseguimos enviar sua mensagem neste momento!
-              </b>
-              <br />
-              Isso pode ter ocorrido devido a um erro no servidor ou problemas
-              de conexão. Por favor: Verifique se os campos do formulário estão
-              preenchidos corretamente e tente enviar a mensagem novamente. Se o
-              problema persistir, entre em contato diretamente através do
-              e-mail: fabio.leandro.medeiros@gmail.com.
-              <br />
-              Obrigado pela paciência!
-            </p>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: t('modalMessage.text.failure')
+              }}
+            />
           )}
         </Container>
       </Modal>

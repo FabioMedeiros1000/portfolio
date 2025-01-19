@@ -1,0 +1,100 @@
+{
+  "header": {
+    "about": "About Me",
+    "skills": "Main Skills",
+    "projects": "Projects",
+    "resume": "Resume",
+    "contact": "Contact",
+    "titleLabel": {
+      "about": "Click here to learn more about me",
+      "skills": "Click here to view my main skills",
+      "projects": "Click here to see some projects I have developed",
+      "resume": "Click here to access my resume",
+      "contact": "Click here to send me a message"
+    }
+  },
+  "about": {
+    "title": "About Me",
+    "description": "I am a <b>front-end developer</b> with an unwavering passion for creating modern, functional, and intuitive interfaces. Focused on <b>user experience</b>, I dedicate myself to transforming ideas into impactful, accessible visual solutions aligned with the best market practices. My motivation is to create digital experiences that connect people and technology efficiently. Additionally, I am always seeking improvement, <b>learning new techniques</b>, and keeping up with the latest web development trends, ensuring <b>modern and innovative projects</b>."
+  },
+  "skills": {
+    "title": "Main Skills"
+  },
+  "projects": {
+    "title": "Projects",
+    "itemsCard": {
+      "efood": {
+        "titleCard": "EFOOD",
+        "text": "eFood is an online store application where users can explore restaurants and their available dishes. By accessing a restaurant's page, it is possible to view the offered dishes and add desired items to the cart, as well as see detailed information about each dish."
+      },
+      "contactList": {
+        "titleCard": "Contact List",
+        "text": "The Contact List is an intuitive and functional web application developed to ease the management of personal or professional contacts. With it, you can register, view, edit, and delete contacts, storing essential information such as name, email, and phone number. The user-friendly interface makes the experience simple and efficient, allowing you to organize your contacts quickly and practically."
+      },
+      "todoList": {
+        "titleCard": "To-do List",
+        "text": "This is a To-do List project developed in React, created using create-react-app. The goal of this project is to manage tasks, allowing users to create, edit, remove, and filter tasks based on different criteria."
+      },
+      "imcCalculator": {
+        "titleCard": "BMI Calculator",
+        "text": "This project is a simple Body Mass Index (BMI) calculator application, developed to help determine the user's weight category based on their height and weight."
+      },
+      "disneyClone": {
+        "titleCard": "Disney+ Clone",
+        "text": "Experience an immersive recreation of the Disney Plus interface, with features simulating the original navigation experience. This project highlights the integration of navigation, interactivity with JavaScript, and the use of modern front-end technologies."
+      },
+      "quiz": {
+        "titleCard": "Quiz",
+        "text": "Interactive Quiz developed for the challenge promoted by Alura's Dev Immersion in partnership with Google Gemini. The project is a dynamic quiz where players can choose categories, answer questions, and check the score at the end."
+      },
+      "filmeflix": {
+        "titleCard": "FilmeFlix",
+        "text": "An interactive and visually appealing landing page displaying Spider-Man movies, categorized by actor. It stands out for its creative design and listing and filtering functionalities."
+      },
+      "techbooks": {
+        "titleCard": "TechBooks",
+        "text": "TechBooks features an intuitive and responsive interface, where users can browse product categories such as smartphones, tablets, laptops, and PCs. The platform includes a dynamic and adaptable menu that makes it easier to search for specific products."
+      }
+    },
+    "titleLabel": "Click here to see more details about the project"
+  },
+  "resume": {
+    "title": "Resume",
+    "description": "Check out my career and technical skills in detail. Download my resume to learn more about my work and completed projects.",
+    "buttonText": "Download Resume",
+    "titleLabel": "Click here to download my resume"
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Feel free to send me a message. I am always open to new opportunities and collaborations!",
+    "input": {
+      "name": "Your name:",
+      "email": "Email:",
+      "subject": "Subject:",
+      "message": "Message:"
+    },
+    "validationMessage": {
+      "required": "This field is required",
+      "email": "The email entered is invalid"
+    },
+    "titleLabel": "Click here to send this message to my email",
+    "buttonText": "Send"
+  },
+  "modalProject": {
+    "links": "Useful Links",
+    "button": {
+      "github": "Project on Github",
+      "demo": "Project Demo"
+    }
+  },
+  "modalMessage": {
+    "title": {
+      "success": "Message sent successfully!",
+      "failure": "Something went wrong while sending the message!"
+    },
+    "text": {
+      "success": "<b>Message sent successfully!</b><br />I'm very glad you reached out! I will reply to your email as soon as possible!",
+      "failure": "<b>Unfortunately, we couldn't send your message at this moment!</b><br />This might have happened due to a server error or connection issues. Please check if all form fields are filled out correctly and try resending the message. If the problem persists, feel free to contact me directly at: fabio.leandro.medeiros@gmail.com. <br />Thank you for your patience!"
+    }
+  }
+}

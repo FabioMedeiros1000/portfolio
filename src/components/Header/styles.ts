@@ -1,10 +1,11 @@
 import styled from 'styled-components'
-import { breakpoints, colors } from '../../variables'
+import { breakpoints, colors, weights } from '../../variables'
 
 export const HeaderContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 
   @media (max-width: ${breakpoints.pc}) {
     h1 {
@@ -52,5 +53,19 @@ export const Navbar = styled.nav`
 
   @media (max-width: ${breakpoints.tablet}) {
     display: none;
+  }
+`
+
+export const Select = styled.select`
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  padding: 8px;
+  background-color: ${colors.white};
+  color: ${colors.red};
+  font-weight: ${weights.bold};
+
+  option {
+    font-weight: ${weights.bold};
   }
 `
