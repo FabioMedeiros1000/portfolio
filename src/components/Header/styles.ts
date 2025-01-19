@@ -5,7 +5,6 @@ export const HeaderContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative;
 
   @media (max-width: ${breakpoints.pc}) {
     h1 {

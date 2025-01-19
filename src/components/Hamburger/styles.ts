@@ -13,9 +13,10 @@ export const ContainerIcon = styled.div`
 
 export const HamburgerContent = styled.ul`
   position: absolute;
-  top: 150px;
+  top: 180px;
   left: 0;
   width: 100%;
+  z-index: 1;
   background-color: ${colors.red};
   text-align: center;
   overflow: hidden;

@@ -1,8 +1,9 @@
 import { useTranslation } from 'react-i18next'
 import { Fade } from 'hamburger-react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { ContainerIcon, HamburgerContent } from './styles'
+import { breakpoints } from '../../variables'
 
 const Hamburger = () => {
   const [isOpen, setOpen] = useState(false)
@@ -11,6 +12,23 @@ const Hamburger = () => {
   const handleItemClick = () => {
     setOpen(false)
   }
+
+  useEffect(() => {
+    const handleResize = () => {
+      const isMobile = window.innerWidth <= parseInt(breakpoints.tablet, 10)
+      if (!isMobile) {
+        setOpen(false)
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    handleResize()
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   return (
     <>
