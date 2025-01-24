@@ -25,7 +25,7 @@
     "itemsCard": {
       "efood": {
         "titleCard": "EFOOD",
-        "text": "eFood é uma aplicação de loja online onde usuários podem explorar restaurantes e seus pratos disponíveis. Ao acessar a página de um restaurante, é possível visualizar os pratos oferecidos e adicionar os itens desejados ao carrinho, além de ver informações detalhadas sobre cada prato."
+        "text": "eFood é uma aplicação web de loja online que permite explorar restaurantes e seus pratos. Com uma interface interativa, os usuários podem se cadastrar, fazer login, adicionar pratos ao carrinho e visualizar detalhes. Desenvolvida com React, Redux e Node.js, a aplicação oferece uma experiência de compra fluida e segura."
       },
       "contactList": {
         "titleCard": "Agenda de contatos",
