@@ -31,5 +31,6 @@ export const Skills = styled.div`
   margin-top: 24px;
 
   display: flex;
+  flex-wrap: wrap;
   gap: 16px;
 `

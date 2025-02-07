@@ -3,6 +3,7 @@ import { breakpoints, colors } from '../../variables'
 
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import { Group } from '../SkillGroup/styles'
 
 export const Container = styled.div`
   display: none;
@@ -10,6 +11,10 @@ export const Container = styled.div`
   @media (max-width: ${breakpoints.tablet}) {
     display: block;
     margin-top: 24px;
+
+    ${Group} {
+      margin-bottom: 24px;
+    }
   }
 
   .slick-dots {
