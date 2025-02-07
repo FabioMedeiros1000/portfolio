@@ -42,6 +42,14 @@ const skills: SkillGroupProps[] = [
     logo: logos.next
   },
   {
+    text: 'Prisma',
+    logo: logos.prisma
+  },
+  {
+    text: 'PostgreSQL',
+    logo: logos.postgresql
+  },
+  {
     text: 'Git',
     logo: logos.git
   },
@@ -52,6 +60,10 @@ const skills: SkillGroupProps[] = [
   {
     text: 'Bootstrap',
     logo: logos.bootstrap
+  },
+  {
+    text: 'Docker',
+    logo: logos.docker
   }
 ]
 

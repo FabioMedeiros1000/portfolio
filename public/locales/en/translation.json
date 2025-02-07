@@ -32,6 +32,10 @@
         "titleCard": "Contact List",
         "text": "The Contact List is an intuitive and functional web application developed to ease the management of personal or professional contacts. With it, you can register, view, edit, and delete contacts, storing essential information such as name, email, and phone number. The user-friendly interface makes the experience simple and efficient, allowing you to organize your contacts quickly and practically."
       },
+      "codeConnect": {
+        "titleCard": "Code-Connect",
+        "text": "Code-Connect is an application developed with Next.js to display posts about programming as part of an Alura course. The project uses PostgreSQL and Prisma for data persistence, Docker for database containerization, and CSS Modules for modular styling. It offers features such as post navigation, likes, comments, search, and filtering."
+      },
       "todoList": {
         "titleCard": "To-do List",
         "text": "This is a To-do List project developed in React, created using create-react-app. The goal of this project is to manage tasks, allowing users to create, edit, remove, and filter tasks based on different criteria."

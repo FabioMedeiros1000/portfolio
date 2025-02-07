@@ -31,6 +31,10 @@
         "titleCard": "Agenda de contatos",
         "text": "A Agenda de Contatos é uma aplicação web intuitiva e funcional desenvolvida para facilitar o gerenciamento de seus contatos pessoais ou profissionais. Com ela, é possível cadastrar, visualizar, editar e excluir contatos, armazenando informações essenciais como nome, e-mail e número de telefone. A interface amigável torna a experiência de uso simples e eficiente, permitindo que você organize seus contatos de maneira rápida e prática."
       },
+      "codeConnect": {
+        "titleCard": "Code-Connect",
+        "text": "Code-Connect é uma aplicação desenvolvida com Next.js para exibir posts sobre programação, como parte de um curso da Alura. O projeto utiliza PostgreSQL e Prisma para persistência de dados, Docker para containerização do banco de dados e CSS Modules para estilização modular. Ele oferece funcionalidades como navegação entre posts, curtir, comentar, busca e filtragem."
+      },
       "todoList": {
         "titleCard": "To-do list",
         "text": "Este é um projeto de to-do List desenvolvido em React, criado utilizando o create-react-app. O objetivo deste projeto é gerenciar tarefas, permitindo criar, editar, remover e filtrar tarefas de acordo com diferentes critérios."

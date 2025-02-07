@@ -8,6 +8,9 @@ import next from '../assets/logos/next.svg'
 import git from '../assets/logos/git.svg'
 import sass from '../assets/logos/sass.svg'
 import bootstrap from '../assets/logos/bootstrap.svg'
+import prisma from '../assets/logos/prisma.svg'
+import postgresql from '../assets/logos/postgresql.svg'
+import docker from '../assets/logos/docker.svg'
 
 const logos = {
   html,
@@ -19,7 +22,10 @@ const logos = {
   next,
   git,
   sass,
-  bootstrap
+  bootstrap,
+  prisma,
+  postgresql,
+  docker
 }
 
 export default logos

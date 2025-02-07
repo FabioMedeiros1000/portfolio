@@ -56,6 +56,25 @@ const Projects = () => {
       }
     },
     {
+      titleCard: t('projects.itemsCard.codeConnect.titleCard'),
+      text: t('projects.itemsCard.codeConnect.text'),
+      stacks: [
+        logos.html,
+        logos.css,
+        logos.javascript,
+        logos.next,
+        logos.react,
+        logos.prisma,
+        logos.postgresql,
+        logos.docker
+      ],
+      links: {
+        github:
+          'https://github.com/FabioMedeiros1000/code-connect-next/tree/main',
+        demo: 'https://code-connect-next-theta.vercel.app/'
+      }
+    },
+    {
       titleCard: t('projects.itemsCard.todoList.titleCard'),
       text: t('projects.itemsCard.todoList.text'),
       stacks: [
