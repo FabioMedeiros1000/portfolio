@@ -20,18 +20,6 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.625rem;
   }
 
-  /* Tema claro */
-  body.light {
-    background-color: ${colors.white};
-    color: ${colors.red};
-  }
-
-  /* Tema escuro */
-  body.dark {
-    background-color: ${colors.red};
-    color: ${colors.white};
-  }
-
   h1 {
     font-size: 3rem;
     font-weight: ${weights.bold};
@@ -89,8 +77,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   input:focus, textarea:focus {
-    border: 2px solid ${colors.blue};
-    outline: none;
+    outline: 1px solid ${colors.blue};
   }
 
   textarea {

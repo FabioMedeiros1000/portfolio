@@ -22,4 +22,5 @@ export const Body = styled.section`
   background-color: ${colors.red};
   color: ${colors.white};
   padding: 16px;
+  text-align: justify;
 `
