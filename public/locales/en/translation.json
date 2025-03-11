@@ -25,7 +25,7 @@
     "itemsCard": {
       "efood": {
         "titleCard": "EFOOD",
-        "text": "eFood is a web application for an online store that allows users to explore restaurants and their dishes. With an interactive interface, users can sign up, log in, add dishes to the cart, and view details. Developed with React, Redux, and Node.js, the application provides a smooth and secure shopping experience."
+        "text": "eFood is an online store web application that allows users to explore restaurants and their dishes. With an interactive interface, users can sign up, log in, add dishes to their cart, and view details. Developed with React, Redux, and Node.js, the application uses PostgreSQL to store data securely and persistently. Thanks to database synchronization, the cart can be accessed across different devices, ensuring a seamless and integrated shopping experience."
 
       },
       "contactList": {

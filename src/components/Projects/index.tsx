@@ -33,7 +33,8 @@ const Projects = () => {
         logos.css,
         logos.typescript,
         logos.react,
-        logos.redux
+        logos.redux,
+        logos.postgresql
       ],
       links: {
         github: 'https://github.com/FabioMedeiros1000/efood',
