@@ -1,12 +1,14 @@
 import { BeatLoader } from 'react-spinners'
 
-import { colors } from '../../variables'
-
 import { Container } from './styles'
 
-const Loader = () => (
+type Props = {
+  color: string
+}
+
+const Loader = ({ color }: Props) => (
   <Container>
-    <BeatLoader color={colors.white} size={8} />
+    <BeatLoader color={color} size={8} />
   </Container>
 )
 

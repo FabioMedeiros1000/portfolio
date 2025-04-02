@@ -1,16 +1,18 @@
 {
   "header": {
-    "about": "About Me",
-    "skills": "Main Skills",
+    "about": "About me",
+    "skills": "Main skills",
     "projects": "Projects",
     "resume": "Resume",
     "contact": "Contact",
+    "askMe": "Ask something",
     "titleLabel": {
       "about": "Click here to learn more about me",
-      "skills": "Click here to view my main skills",
-      "projects": "Click here to see some projects I have developed",
+      "skills": "Click here to see my main skills",
+      "projects": "Click here to see some projects I've developed",
       "resume": "Click here to access my resume",
-      "contact": "Click here to send me a message"
+      "contact": "Click here to send me a message",
+      "askMe": "Click here to ask me something"
     }
   },
   "about": {
@@ -78,12 +80,13 @@
       "subject": "Subject:",
       "message": "Message:"
     },
-    "validationMessage": {
-      "required": "This field is required",
-      "email": "The email entered is invalid"
-    },
     "titleLabel": "Click here to send this message to my email",
     "buttonText": "Send"
+  },
+  "askMe": {
+    "title": "Ask me something",
+    "button": "Ask",
+    "placeholder": "Ask me anything about myself, and an AI trained with my data will answer you!"
   },
   "modalProject": {
     "links": "Useful Links",
@@ -101,5 +104,12 @@
       "success": "<b>Message sent successfully!</b><br />I'm very glad you reached out! I will reply to your email as soon as possible!",
       "failure": "<b>Unfortunately, we couldn't send your message at this moment!</b><br />This might have happened due to a server error or connection issues. Please check if all form fields are filled out correctly and try resending the message. If the problem persists, feel free to contact me directly at: fabio.leandro.medeiros@gmail.com. <br />Thank you for your patience!"
     }
+  },
+  "validationMessage": {
+    "required": "This field is required",
+    "email": "The email entered is invalid",
+    "minLength": "The field must have at least {{min}} characters.",
+    "maxLength": "The field can have at most {{max}} characters.",
+    "remainingCharacters": "{{count}} characters remaining."
   }
 }

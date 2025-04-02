@@ -1,17 +1,18 @@
 import { useRef, useState } from 'react'
-import { useForm } from 'react-hook-form'
+import { FormProvider, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
 import Button from '../Button'
 import Section from '../Section'
 import ModalMessage from '../ModalMessage'
 import Loader from '../Loader'
+import FormGroup from '../FormGroup'
 
 import { ModalHandles } from '../Modal'
 import { sendEmail } from '../../services/emailService'
 
-import { FormData, FormGroup } from './styles'
 import { GlobalContainer, TitleGlobal } from '../../styles'
+import { colors } from '../../variables'
 
 export type FormType = {
   name: string
@@ -24,11 +25,12 @@ const Contact = () => {
   const modalRef = useRef<ModalHandles>(null)
   const { t } = useTranslation()
 
+  const methods = useForm<FormType>()
+
   const {
-    register,
     handleSubmit,
     formState: { errors }
-  } = useForm<FormType>()
+  } = methods
 
   const [isSendSuccess, setIsSendSuccess] = useState<boolean | null>(null)
   const [isLoading, setIsLoading] = useState(false)
@@ -39,6 +41,7 @@ const Contact = () => {
     try {
       await sendEmail(data)
       setIsSendSuccess(true)
+      methods.reset()
     } catch (error) {
       setIsSendSuccess(false)
     } finally {
@@ -57,62 +60,58 @@ const Contact = () => {
         <GlobalContainer>
           <TitleGlobal>{t('contact.title')}</TitleGlobal>
           <p>{t('contact.description')}</p>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <FormData>
-              <FormGroup size="333.33px">
-                <p>{t('contact.input.name')}</p>
-                <input
+          <FormProvider {...methods}>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <div className="grid-form">
+                <div className="two-columns">
+                  <FormGroup
+                    label={t('contact.input.name')}
+                    validationMessage={t('validationMessage.required')}
+                    type="text"
+                    fieldName="name"
+                    error={errors.name?.message}
+                    minLength={5}
+                  />
+                  <FormGroup
+                    label={t('contact.input.email')}
+                    validationMessage={t('validationMessage.required')}
+                    type="email"
+                    fieldName="email"
+                    error={errors.email?.message}
+                  />
+                </div>
+                <FormGroup
+                  label={t('contact.input.subject')}
+                  validationMessage={t('validationMessage.required')}
                   type="text"
-                  {...register('name', {
-                    required: t('contact.validationMessage.required')
-                  })}
+                  fieldName="subject"
+                  error={errors.subject?.message}
+                  minLength={5}
                 />
-                {errors.name && <small>{errors.name.message}</small>}
-              </FormGroup>
-              <FormGroup size="666.66px">
-                <p>{t('contact.input.email')}</p>
-                <input
-                  type="email"
-                  {...register('email', {
-                    required: t('contact.validationMessage.required'),
-                    pattern: {
-                      value:
-                        /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-                      message: t('contact.validationMessage.email')
-                    }
-                  })}
+                <FormGroup
+                  label={t('contact.input.message')}
+                  validationMessage={t('validationMessage.required')}
+                  type="textarea"
+                  fieldName="message"
+                  error={errors.message?.message}
+                  minLength={10}
+                  maxLength={1200}
                 />
-                {errors.email && <small>{errors.email.message}</small>}
-              </FormGroup>
-              <FormGroup size="100%">
-                <p>{t('contact.input.subject')}</p>
-                <input
-                  type="text"
-                  {...register('subject', {
-                    required: t('contact.validationMessage.required')
-                  })}
-                />
-                {errors.subject && <small>{errors.subject.message}</small>}
-              </FormGroup>
-              <FormGroup size="100%">
-                <p>{t('contact.input.message')}</p>
-                <textarea
-                  {...register('message', {
-                    required: t('contact.validationMessage.required')
-                  })}
-                />
-                {errors.message && <small>{errors.message.message}</small>}
-              </FormGroup>
-            </FormData>
-            <Button
-              disabled={isLoading}
-              type="submit"
-              bgColor="red"
-              title={t('contact.titleLabel')}
-            >
-              {isLoading ? <Loader /> : t('contact.buttonText')}
-            </Button>
-          </form>
+              </div>
+              <Button
+                disabled={isLoading}
+                type="submit"
+                bgColor="red"
+                title={t('contact.titleLabel')}
+              >
+                {isLoading ? (
+                  <Loader color={colors.white} />
+                ) : (
+                  t('contact.buttonText')
+                )}
+              </Button>
+            </form>
+          </FormProvider>
         </GlobalContainer>
         <ModalMessage
           ref={modalRef}

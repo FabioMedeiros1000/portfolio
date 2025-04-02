@@ -39,7 +39,7 @@ const GlobalStyle = createGlobalStyle`
   h2 {
     font-size: 2.25rem;
     font-weight: ${weights.medium};
-    line-height: 2.9375rem;
+    line-height: 1.9375rem;
 
     @media (max-width: ${breakpoints.tablet}) {
       font-size: 1.8rem;
@@ -84,6 +84,28 @@ const GlobalStyle = createGlobalStyle`
     height: 150px;
     resize: none;
   }
+
+  .two-columns {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    column-gap: 32px;
+    row-gap: 0px;
+
+    @media (max-width: ${breakpoints.tablet}) {
+      flex-diretion: column;
+      flex-wrap: wrap;
+      column-gap: 0px;
+      row-gap: 16px;
+    }
+  }
+
+  .grid-form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    margin-top: 8px;
+  }
 `
 
 export const GlobalContainer = styled.div`
@@ -101,11 +123,7 @@ export const GlobalContainer = styled.div`
 `
 
 export const TitleGlobal = styled.h2`
-  margin-bottom: 8px;
-
-  @media (max-width: ${breakpoints.tablet}) {
-    margin-bottom: 16px;
-  }
+  margin-bottom: 16px;
 `
 
 export default GlobalStyle
