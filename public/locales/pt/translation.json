@@ -85,7 +85,11 @@
   "askMe": {
     "title": "Me pergunte alguma coisa",
     "button": "Pergunte",
-    "placeholder": "Faça alguma pergunta sobre mim e uma IA treinada com meus dados te responderá!"
+    "placeholder": "Faça alguma pergunta sobre mim e uma IA treinada com meus dados te responderá!",
+    "buttonTitle": "Clique aqui para tirar a sua dúvida"
+  },
+  "footer": {
+    "titleLabel": "Clique aqui para acessar {{text}}"
   },
   "modalProject": {
     "links": "Links úteis",

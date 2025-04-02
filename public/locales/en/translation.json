@@ -86,7 +86,11 @@
   "askMe": {
     "title": "Ask me something",
     "button": "Ask",
-    "placeholder": "Ask me anything about myself, and an AI trained with my data will answer you!"
+    "placeholder": "Ask me anything about myself, and an AI trained with my data will answer you!",
+    "buttonTitle": "Click here to ask your question"
+  },
+  "footer": {
+    "titleLabel": "Click here to access {{text}}"
   },
   "modalProject": {
     "links": "Useful Links",

@@ -88,7 +88,11 @@ const AskSomething = () => {
               maxLength={530}
               error={errors.prompt?.message}
             />
-            <Button bgColor="white" type="submit">
+            <Button
+              bgColor="white"
+              type="submit"
+              title={t('askMe.buttonTitle')}
+            >
               {loading ? <Loader color={colors.red} /> : t('askMe.button')}
             </Button>
           </form>

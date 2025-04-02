@@ -33,7 +33,7 @@ const Navbar = () => {
           </a>
         </li>
         <li>
-          <a href="#askMe" title={t('header.askMe.titleLabel')}>
+          <a href="#askMe" title={t('header.titleLabel.askMe')}>
             {t('header.askMe')}
           </a>
         </li>
