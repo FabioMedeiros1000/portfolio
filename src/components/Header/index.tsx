@@ -11,7 +11,7 @@ import Select from '../Select'
 import Navbar from '../Navbar'
 
 const Header = () => {
-  const { t, i18n } = useTranslation()
+  const { i18n } = useTranslation()
   const [selectedLanguage, setSelectedLanguage] = useState<string>(
     i18n.language
   )

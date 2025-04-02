@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints, colors, weights } from '../../variables'
+import { breakpoints } from '../../variables'
 
 export const HeaderContent = styled.div`
   display: flex;
