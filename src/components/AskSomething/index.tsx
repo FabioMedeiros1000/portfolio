@@ -1,7 +1,6 @@
 import { FormProvider, useForm } from 'react-hook-form'
 import { useEffect, useRef, useState } from 'react'
 
-import FormGroup from '../FormGroup'
 import Section from '../Section'
 import Button from '../Button'
 import MessageBox from '../MessageBox'
@@ -13,6 +12,7 @@ import { colors } from '../../variables'
 import Loader from '../Loader'
 import { MessageContainer } from './styles'
 import { useTranslation } from 'react-i18next'
+import Input from '../Input'
 
 type UserInputType = {
   prompt: string
@@ -78,15 +78,15 @@ const AskSomething = () => {
         </MessageContainer>
         <FormProvider {...methods}>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <FormGroup
+            <Input
               type="textarea"
-              placeholder={t('askMe.placeholder')}
               fieldName="prompt"
               validationMessage={t('validationMessage.required')}
               borderColor={colors.white}
               minLength={5}
               maxLength={530}
-              error={errors.prompt?.message}
+              error={errors.prompt?.message as string}
+              placeholder={t('askMe.placeholder')}
             />
             <Button
               bgColor="white"

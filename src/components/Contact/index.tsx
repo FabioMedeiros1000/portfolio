@@ -6,13 +6,14 @@ import Button from '../Button'
 import Section from '../Section'
 import ModalMessage from '../ModalMessage'
 import Loader from '../Loader'
-import FormGroup from '../FormGroup'
 
 import { ModalHandles } from '../Modal'
 import { sendEmail } from '../../services/emailService'
 
 import { GlobalContainer, TitleGlobal } from '../../styles'
 import { colors } from '../../variables'
+import Input from '../Input'
+import InputWithLabel from '../InputWithLabel'
 
 export type FormType = {
   name: string
@@ -64,38 +65,46 @@ const Contact = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="grid-form">
                 <div className="two-columns">
-                  <FormGroup
+                  <InputWithLabel
                     label={t('contact.input.name')}
                     validationMessage={t('validationMessage.required')}
                     type="text"
                     fieldName="name"
-                    error={errors.name?.message}
+                    id="name"
+                    error={errors.name?.message as string}
                     minLength={5}
+                    borderColor={colors.red}
                   />
-                  <FormGroup
+                  <InputWithLabel
                     label={t('contact.input.email')}
                     validationMessage={t('validationMessage.required')}
                     type="email"
                     fieldName="email"
-                    error={errors.email?.message}
+                    id="email"
+                    error={errors.email?.message as string}
+                    borderColor={colors.red}
                   />
                 </div>
-                <FormGroup
+                <InputWithLabel
                   label={t('contact.input.subject')}
                   validationMessage={t('validationMessage.required')}
                   type="text"
                   fieldName="subject"
-                  error={errors.subject?.message}
+                  id="subject"
+                  error={errors.subject?.message as string}
                   minLength={5}
+                  borderColor={colors.red}
                 />
-                <FormGroup
+                <InputWithLabel
                   label={t('contact.input.message')}
                   validationMessage={t('validationMessage.required')}
                   type="textarea"
                   fieldName="message"
-                  error={errors.message?.message}
+                  id="message"
+                  error={errors.message?.message as string}
                   minLength={10}
                   maxLength={1200}
+                  borderColor={colors.red}
                 />
               </div>
               <Button

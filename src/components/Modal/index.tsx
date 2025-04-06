@@ -39,7 +39,7 @@ const Modal = forwardRef<ModalHandles, ModalProps>(
     return (
       <Dialog ref={dialogRef}>
         <Header>{titleModal}</Header>
-        <img src={close} onClick={closeModal} />
+        <img src={close} onClick={closeModal} alt="Ícone para fechar a modal" />
         {children}
       </Dialog>
     )

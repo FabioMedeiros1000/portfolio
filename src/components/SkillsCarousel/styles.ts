@@ -5,7 +5,7 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { Group } from '../SkillGroup/styles'
 
-export const Container = styled.div`
+export const Container = styled.ul`
   display: none;
 
   @media (max-width: ${breakpoints.tablet}) {

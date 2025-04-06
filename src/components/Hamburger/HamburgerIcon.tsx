@@ -8,7 +8,7 @@ type HamburgerIconProps = {
 
 const HamburgerIcon = ({ isOpen, onClick }: HamburgerIconProps) => {
   return (
-    <ContainerIcon>
+    <ContainerIcon aria-label="Ícone do menu hamburguer">
       <Fade
         toggled={isOpen}
         toggle={onClick}

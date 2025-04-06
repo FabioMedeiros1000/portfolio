@@ -1,6 +1,7 @@
 import styled, { createGlobalStyle } from 'styled-components'
 
 import { breakpoints, colors, weights } from './variables'
+import { FormProps } from './hooks/useFormHook'
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -124,6 +125,21 @@ export const GlobalContainer = styled.div`
 
 export const TitleGlobal = styled.h2`
   margin-bottom: 16px;
+`
+
+export const FormContainer = styled.div<Pick<FormProps, 'borderColor'>>`
+  font-weight: bold;
+  display: block;
+  width: 100%;
+
+  textarea {
+    border-color: ${(props) => props.borderColor || colors.red};
+    color: ${(props) => props.borderColor || colors.red};
+  }
+
+  small {
+    font-weight: 400;
+  }
 `
 
 export default GlobalStyle
