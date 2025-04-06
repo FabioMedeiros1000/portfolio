@@ -12,7 +12,6 @@ import { sendEmail } from '../../services/emailService'
 
 import { GlobalContainer, TitleGlobal } from '../../styles'
 import { colors } from '../../variables'
-import Input from '../Input'
 import InputWithLabel from '../InputWithLabel'
 
 export type FormType = {
