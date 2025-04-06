@@ -1,16 +1,13 @@
 import { useTranslation } from 'react-i18next'
 
 import Section from '../Section'
-import SkillGroup from '../SkillGroup'
+import ContentSkills from '../ContentSkills'
 
 import { SkillGroupProps } from '../SkillGroup'
 
 import logos from '../../utils/logos'
 
-import { ContentSkills } from './styles'
-
 import { GlobalContainer } from '../../styles'
-import SkillsCarousel from '../SkillsCarousel'
 
 const skills: SkillGroupProps[] = [
   {
@@ -74,20 +71,7 @@ const Skills = () => {
     <Section backgroundColor="red" id="skills">
       <GlobalContainer>
         <h2>{t('skills.title')}</h2>
-        <ContentSkills>
-          {skills.map((skill, index) => (
-            <li key={index + 1}>
-              <SkillGroup logo={skill.logo} text={skill.text} />
-            </li>
-          ))}
-        </ContentSkills>
-        <SkillsCarousel>
-          {skills.map((skill, index) => (
-            <li key={index + 1}>
-              <SkillGroup logo={skill.logo} text={skill.text} size="50px" />
-            </li>
-          ))}
-        </SkillsCarousel>
+        <ContentSkills skills={skills} />
       </GlobalContainer>
     </Section>
   )

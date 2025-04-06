@@ -19,7 +19,6 @@ const Modal = forwardRef<ModalHandles, ModalProps>(
 
     function openModal() {
       dialogRef.current?.showModal()
-
       setTimeout(() => {
         const activeElement = document.activeElement as HTMLElement
         if (dialogRef.current?.contains(activeElement)) {

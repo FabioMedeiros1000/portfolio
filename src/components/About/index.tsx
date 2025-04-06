@@ -17,7 +17,7 @@ const About = () => {
         <TitleGlobal>{t('about.title')}</TitleGlobal>
         <SectionContent>
           <div>
-            <img src={photo} />
+            <img src={photo} alt="Foto de Fábio Medeiros" />
             <h3>Fábio Medeiros</h3>
           </div>
           <p dangerouslySetInnerHTML={{ __html: t('about.description') }} />

@@ -1,30 +1,61 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import Card, { CardProps } from '../Card'
+import { CardProps } from '../Card'
 import Section from '../Section'
 
 import logos from '../../utils/logos'
 
-import { Grid, GridTablet, ScrollbarContainer, Title } from './styles'
+import { Title } from './styles'
 
 import { GlobalContainer } from '../../styles'
 import { ModalHandles } from '../Modal'
-import ModalProject from '../ModalProject'
-import Scrollbars from 'react-custom-scrollbars-2'
+import ModalProject, { ModalProps } from '../ModalProject'
+import ProjectsList from '../ProjectsList'
 
-type ModalState = {
-  selectProject: string
-  text: string
-  stacks: string[]
-  linkGithub: string
-  linkDemo: string
-}
-
-const Projects = () => {
+const ProjectsSection = () => {
   const { t } = useTranslation()
 
   const items: CardProps[] = [
+    {
+      titleCard: t('projects.itemsCard.efood.titleCard'),
+      text: t('projects.itemsCard.efood.text')
+    },
+    {
+      titleCard: t('projects.itemsCard.contactList.titleCard'),
+      text: t('projects.itemsCard.contactList.text')
+    },
+    {
+      titleCard: t('projects.itemsCard.codeConnect.titleCard'),
+      text: t('projects.itemsCard.codeConnect.text')
+    },
+    {
+      titleCard: t('projects.itemsCard.todoList.titleCard'),
+      text: t('projects.itemsCard.todoList.text')
+    },
+    {
+      titleCard: t('projects.itemsCard.imcCalculator.titleCard'),
+      text: t('projects.itemsCard.imcCalculator.text')
+    },
+    {
+      titleCard: t('projects.itemsCard.disneyClone.titleCard'),
+      text: t('projects.itemsCard.disneyClone.text')
+    },
+    {
+      titleCard: t('projects.itemsCard.quiz.titleCard'),
+      text: t('projects.itemsCard.quiz.text')
+    },
+    {
+      titleCard: t('projects.itemsCard.filmeflix.titleCard'),
+      text: t('projects.itemsCard.filmeflix.text')
+    },
+    {
+      titleCard: t('projects.itemsCard.techbooks.titleCard'),
+      text: t('projects.itemsCard.techbooks.text')
+    }
+  ]
+
+  const modalItems: ModalProps[] = [
     {
       titleCard: t('projects.itemsCard.efood.titleCard'),
       text: t('projects.itemsCard.efood.text'),
@@ -138,13 +169,7 @@ const Projects = () => {
     }
   ]
 
-  const [modalState, setModalState] = useState<ModalState>({
-    selectProject: '',
-    text: '',
-    stacks: [],
-    linkGithub: '',
-    linkDemo: ''
-  })
+  const [modalState, setModalState] = useState<ModalProps>()
 
   const modalRef = useRef<ModalHandles>(null)
 
@@ -152,102 +177,36 @@ const Projects = () => {
     return text.slice(0, maxLength - 3) + '...'
   }
 
-  function handleCardClick(
-    title: string,
-    text: string,
-    stacks: string[],
-    linkGithub: string,
-    linkDemo: string
-  ) {
-    setModalState({
-      selectProject: title,
-      stacks,
-      text,
-      linkGithub,
-      linkDemo
-    })
-    modalRef.current?.openModal()
+  function handleCardClick(itemTitle: string) {
+    const modalItem = modalItems.find(
+      (modalItem) => modalItem.titleCard === itemTitle
+    )
+    if (modalItem) {
+      setModalState(modalItem)
+    }
   }
+
+  useEffect(() => {
+    if (modalState) {
+      modalRef.current?.openModal()
+    }
+  }, [modalState])
 
   return (
     <Section backgroundColor="white" id="projects">
       <>
         <GlobalContainer>
           <Title>{t('projects.title')}</Title>
-          <Grid>
-            {items.map((item, index) => (
-              <li key={index}>
-                <Card
-                  titleCard={item.titleCard}
-                  text={trimText(item.text)}
-                  title={`${t('projects.titleLabel')} ${item.titleCard}`}
-                  onClick={() =>
-                    handleCardClick(
-                      item.titleCard,
-                      item.text,
-                      item.stacks!,
-                      item.links?.github!,
-                      item.links?.demo!
-                    )
-                  }
-                />
-              </li>
-            ))}
-          </Grid>
-          <GridTablet>
-            {items.map((item, index) => (
-              <li key={index}>
-                <Card
-                  titleCard={item.titleCard}
-                  text={trimText(item.text, 187)}
-                  title={`Clique aqui para ver mais detalhes sobre o projeto ${item.titleCard}`}
-                  onClick={() =>
-                    handleCardClick(
-                      item.titleCard,
-                      item.text,
-                      item.stacks!,
-                      item.links?.github!,
-                      item.links?.demo!
-                    )
-                  }
-                />
-              </li>
-            ))}
-          </GridTablet>
-          <ScrollbarContainer>
-            <Scrollbars style={{ height: 550 }}>
-              {items.map((item, index) => (
-                <li key={index}>
-                  <Card
-                    titleCard={item.titleCard}
-                    text={trimText(item.text)}
-                    title={`Clique aqui para ver mais detalhes sobre o projeto ${item.titleCard}`}
-                    onClick={() =>
-                      handleCardClick(
-                        item.titleCard,
-                        item.text,
-                        item.stacks!,
-                        item.links?.github!,
-                        item.links?.demo!
-                      )
-                    }
-                  />
-                </li>
-              ))}
-            </Scrollbars>
-          </ScrollbarContainer>
+          <ProjectsList
+            items={items}
+            trimText={trimText}
+            handleCardClick={handleCardClick}
+          />
         </GlobalContainer>
-        <ModalProject
-          ref={modalRef}
-          title={modalState.selectProject}
-          text={modalState.text}
-          stacks={modalState.stacks}
-          githubLink={modalState.linkGithub}
-          demoLink={modalState.linkDemo}
-        />
+        {modalState && <ModalProject ref={modalRef} {...modalState} />}
       </>
     </Section>
   )
 }
 
-export default Projects
+export default ProjectsSection

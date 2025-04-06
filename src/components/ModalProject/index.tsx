@@ -7,16 +7,18 @@ import Modal, { ModalHandles } from '../Modal'
 import { Container, Skills } from './styles'
 import SkillGroup from '../SkillGroup'
 
-type Props = {
-  title: string
+export type ModalProps = {
+  titleCard: string
   text: string
   stacks: string[]
-  githubLink: string
-  demoLink: string
+  links: {
+    github: string
+    demo: string
+  }
 }
 
-const ModalProject = forwardRef(
-  ({ title, text, stacks, githubLink, demoLink }: Props, ref) => {
+const ModalProject = forwardRef<ModalHandles, ModalProps>(
+  ({ titleCard, text, stacks, links }, ref) => {
     const modalRef = useRef<ModalHandles>(null)
     const { t } = useTranslation()
 
@@ -24,19 +26,24 @@ const ModalProject = forwardRef(
       modalRef.current?.openModal()
     }
 
+    function closeModal() {
+      modalRef.current?.closeModal()
+    }
+
     useImperativeHandle(ref, () => ({
-      openModal
+      openModal,
+      closeModal
     }))
 
     return (
-      <Modal ref={modalRef} titleModal={title}>
+      <Modal ref={modalRef} titleModal={titleCard}>
         <Container>
           <p>{text}</p>
           <h3>{t('modalProject.links')}</h3>
-          <a href={githubLink} target="_blank" tabIndex={-1}>
+          <a href={links.github} target="_blank" tabIndex={-1}>
             <Button bgColor="white">{t('modalProject.button.github')}</Button>
           </a>
-          <a href={demoLink} target="_blank" tabIndex={-1}>
+          <a href={links.demo} target="_blank" tabIndex={-1}>
             <Button bgColor="white">{t('modalProject.button.demo')}</Button>
           </a>
           <Skills>
