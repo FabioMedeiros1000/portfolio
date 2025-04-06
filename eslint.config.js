@@ -1,10 +1,10 @@
-import js from '@eslint/js';
-import globals from 'globals';
-import reactHooks from 'eslint-plugin-react-hooks';
-import react from 'eslint-plugin-react';
-import prettier from 'eslint-plugin-prettier';
-import typescript from '@typescript-eslint/eslint-plugin';
-import typescriptParser from '@typescript-eslint/parser';
+import js from '@eslint/js'
+import globals from 'globals'
+import reactHooks from 'eslint-plugin-react-hooks'
+import react from 'eslint-plugin-react'
+import prettier from 'eslint-plugin-prettier'
+import typescript from '@typescript-eslint/eslint-plugin'
+import typescriptParser from '@typescript-eslint/parser'
 
 export default [
   {
@@ -13,13 +13,13 @@ export default [
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
-      parser: typescriptParser,
+      parser: typescriptParser
     },
     plugins: {
       'react-hooks': reactHooks,
       '@typescript-eslint': typescript,
-      'react': react,
-      'prettier': prettier,
+      react: react,
+      prettier: prettier
     },
     rules: {
       'react-hooks/rules-of-hooks': 'error',
@@ -30,11 +30,11 @@ export default [
       'prettier/prettier': [
         'error',
         {
-          trailingComma: "none",
+          trailingComma: 'none',
           semi: false,
           singleQuote: true
-        },
-      ],
-    },
-  },
-];
+        }
+      ]
+    }
+  }
+]
