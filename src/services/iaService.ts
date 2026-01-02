@@ -2,7 +2,7 @@ export async function sendPrompt(
   prompt: string
 ): Promise<{ response: string }> {
   try {
-    const API_URL = 'https://portfolio-backend-gomk.onrender.com'
+    const API_URL = import.meta.env.VITE_BACKEND_URL
     const response = await fetch(`${API_URL}/ai/ask`, {
       method: 'POST',
       headers: {
