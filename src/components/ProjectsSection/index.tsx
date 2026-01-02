@@ -60,11 +60,8 @@ const ProjectsSection = () => {
       titleCard: t('projects.itemsCard.efood.titleCard'),
       text: t('projects.itemsCard.efood.text'),
       stacks: [
-        logos.html,
-        logos.css,
         logos.typescript,
         logos.react,
-        logos.redux,
         logos.postgresql
       ],
       links: {
@@ -76,11 +73,8 @@ const ProjectsSection = () => {
       titleCard: t('projects.itemsCard.contactList.titleCard'),
       text: t('projects.itemsCard.contactList.text'),
       stacks: [
-        logos.html,
-        logos.css,
         logos.typescript,
-        logos.react,
-        logos.redux
+        logos.react
       ],
       links: {
         github: 'https://github.com/FabioMedeiros1000/agenda-contatos-react',
@@ -91,12 +85,8 @@ const ProjectsSection = () => {
       titleCard: t('projects.itemsCard.codeConnect.titleCard'),
       text: t('projects.itemsCard.codeConnect.text'),
       stacks: [
-        logos.html,
-        logos.css,
         logos.javascript,
-        logos.next,
         logos.react,
-        logos.prisma,
         logos.postgresql,
         logos.docker
       ],
@@ -110,11 +100,8 @@ const ProjectsSection = () => {
       titleCard: t('projects.itemsCard.todoList.titleCard'),
       text: t('projects.itemsCard.todoList.text'),
       stacks: [
-        logos.html,
-        logos.css,
         logos.typescript,
-        logos.react,
-        logos.redux
+        logos.react
       ],
       links: {
         github: 'https://github.com/FabioMedeiros1000/todo-react',
@@ -124,7 +111,7 @@ const ProjectsSection = () => {
     {
       titleCard: t('projects.itemsCard.imcCalculator.titleCard'),
       text: t('projects.itemsCard.imcCalculator.text'),
-      stacks: [logos.html, logos.css, logos.javascript, logos.react],
+      stacks: [logos.javascript, logos.react],
       links: {
         github: 'https://github.com/FabioMedeiros1000/calculadora-imc',
         demo: 'https://calculadora-imc-flm.vercel.app/'
@@ -133,7 +120,7 @@ const ProjectsSection = () => {
     {
       titleCard: t('projects.itemsCard.disneyClone.titleCard'),
       text: t('projects.itemsCard.disneyClone.text'),
-      stacks: [logos.html, logos.css, logos.javascript],
+      stacks: [logos.javascript],
       links: {
         github: 'https://github.com/FabioMedeiros1000/clone_disneyplus',
         demo: 'https://clone-disneyplus-two-gamma.vercel.app/'
@@ -142,7 +129,7 @@ const ProjectsSection = () => {
     {
       titleCard: t('projects.itemsCard.quiz.titleCard'),
       text: t('projects.itemsCard.quiz.text'),
-      stacks: [logos.html, logos.css, logos.javascript],
+      stacks: [logos.javascript],
       links: {
         github:
           'https://github.com/FabioMedeiros1000/desafio-alura-gemini-quiz',
@@ -152,7 +139,7 @@ const ProjectsSection = () => {
     {
       titleCard: t('projects.itemsCard.filmeflix.titleCard'),
       text: t('projects.itemsCard.filmeflix.text'),
-      stacks: [logos.html, logos.css, logos.javascript],
+      stacks: [logos.javascript],
       links: {
         github: 'https://github.com/FabioMedeiros1000/filmeflix-homem-aranha',
         demo: 'https://filmeflix-homem-aranha.vercel.app/'
@@ -161,7 +148,7 @@ const ProjectsSection = () => {
     {
       titleCard: t('projects.itemsCard.techbooks.titleCard'),
       text: t('projects.itemsCard.techbooks.text'),
-      stacks: [logos.html, logos.css, logos.bootstrap],
+      stacks: [],
       links: {
         github: 'https://github.com/FabioMedeiros1000/techbooks',
         demo: 'https://fabio-techbooks.vercel.app/'
