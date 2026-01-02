@@ -6,9 +6,9 @@ export type SkillGroupProps = {
   size?: string
 }
 
-const SkillGroup = ({ logo, text, size = '128px' }: SkillGroupProps) => (
+const SkillGroup = ({ logo, text, size = '100px' }: SkillGroupProps) => (
   <Group size={size}>
-    <img src={logo} alt={`Logo do(a) ${text}`} />
+    <img style={{"height": size, "width": size}} src={logo} alt={`Logo do(a) ${text}`} />
     <p>{text}</p>
   </Group>
 )

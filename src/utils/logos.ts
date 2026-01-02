@@ -1,29 +1,23 @@
-import html from '../assets/logos/html.svg'
-import css from '../assets/logos/css.svg'
+import python from '../assets/logos/python.svg'
+import fastapi from '../assets/logos/fastapi.svg'
+import langchain from '../assets/logos/langchain.svg'
+import node from '../assets/logos/node.svg'
+import react from '../assets/logos/react.svg'
 import javascript from '../assets/logos/javascript.svg'
 import typescript from '../assets/logos/typescript.svg'
-import react from '../assets/logos/react.svg'
-import redux from '../assets/logos/redux.svg'
-import next from '../assets/logos/next.svg'
 import git from '../assets/logos/git.svg'
-import sass from '../assets/logos/sass.svg'
-import bootstrap from '../assets/logos/bootstrap.svg'
-import prisma from '../assets/logos/prisma.svg'
 import postgresql from '../assets/logos/postgresql.svg'
 import docker from '../assets/logos/docker.svg'
 
 const logos = {
-  html,
-  css,
+  python,
+  fastapi,
+  langchain,
+  node,
+  react,
   javascript,
   typescript,
-  react,
-  redux,
-  next,
   git,
-  sass,
-  bootstrap,
-  prisma,
   postgresql,
   docker
 }

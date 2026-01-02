@@ -30,7 +30,7 @@ const Header = () => {
     <Section padding={20} backgroundColor="red">
       <GlobalContainer>
         <HeaderContent>
-          <h1>Front-End Developer</h1>
+          <h1>Fullstack Developer</h1>
           <Navbar />
           <div className="flex-col">
             <Select

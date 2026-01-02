@@ -11,12 +11,24 @@ import { GlobalContainer } from '../../styles'
 
 const skills: SkillGroupProps[] = [
   {
-    text: 'HTML',
-    logo: logos.html
+    text: 'Python',
+    logo: logos.python
   },
   {
-    text: 'CSS',
-    logo: logos.css
+    text: 'Fastapi',
+    logo: logos.fastapi
+  },
+  {
+    text: 'Langchain',
+    logo: logos.langchain
+  },
+  {
+    text: 'Node',
+    logo: logos.node
+  },
+  {
+    text: 'React',
+    logo: logos.react
   },
   {
     text: 'JavaScript',
@@ -27,36 +39,12 @@ const skills: SkillGroupProps[] = [
     logo: logos.typescript
   },
   {
-    text: 'React',
-    logo: logos.react
-  },
-  {
-    text: 'Redux',
-    logo: logos.redux
-  },
-  {
-    text: 'Next.js',
-    logo: logos.next
-  },
-  {
-    text: 'Prisma',
-    logo: logos.prisma
-  },
-  {
     text: 'PostgreSQL',
     logo: logos.postgresql
   },
   {
     text: 'Git',
     logo: logos.git
-  },
-  {
-    text: 'SASS',
-    logo: logos.sass
-  },
-  {
-    text: 'Bootstrap',
-    logo: logos.bootstrap
   },
   {
     text: 'Docker',
@@ -70,7 +58,7 @@ const Skills = () => {
   return (
     <Section backgroundColor="red" id="skills">
       <GlobalContainer>
-        <h2>{t('skills.title')}</h2>
+        <h2 style={{"marginBottom": "24px"}}>{t('skills.title')}</h2>
         <ContentSkills skills={skills} />
       </GlobalContainer>
     </Section>

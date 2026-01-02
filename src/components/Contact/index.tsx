@@ -72,6 +72,7 @@ const Contact = () => {
                     id="name"
                     error={errors.name?.message as string}
                     minLength={5}
+                    maxLength={100}
                     borderColor={colors.red}
                   />
                   <InputWithLabel
@@ -80,6 +81,8 @@ const Contact = () => {
                     type="email"
                     fieldName="email"
                     id="email"
+                    minLength={5}
+                    maxLength={70}
                     error={errors.email?.message as string}
                     borderColor={colors.red}
                   />
@@ -92,6 +95,7 @@ const Contact = () => {
                   id="subject"
                   error={errors.subject?.message as string}
                   minLength={5}
+                  maxLength={255}
                   borderColor={colors.red}
                 />
                 <InputWithLabel
