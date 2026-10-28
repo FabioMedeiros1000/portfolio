@@ -19,6 +19,7 @@ const ProjectsListDesktop = ({
             <Card
               titleCard={item.titleCard}
               text={trimText(item.text)}
+              index={index + 1}
               title={`${t('projects.titleLabel')} ${item.titleCard.toLowerCase()}`}
               onClick={() => handleCardClick(item.titleCard as string)}
             />

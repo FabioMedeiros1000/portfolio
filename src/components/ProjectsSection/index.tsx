@@ -6,9 +6,7 @@ import Section from '../Section'
 
 import logos from '../../utils/logos'
 
-import { Title } from './styles'
-
-import { GlobalContainer } from '../../styles'
+import { GlobalContainer, TitleGlobal } from '../../styles'
 import { ModalHandles } from '../Modal'
 import ModalProject, { ModalProps } from '../ModalProject'
 import ProjectsList from '../ProjectsList'
@@ -16,7 +14,7 @@ import ProjectsList from '../ProjectsList'
 const ProjectsSection = () => {
   const { t } = useTranslation()
 
-  const items: CardProps[] = [
+  const items: Omit<CardProps, 'index'>[] = [
     {
       titleCard: t('projects.itemsCard.efood.titleCard'),
       text: t('projects.itemsCard.efood.text')
@@ -59,11 +57,7 @@ const ProjectsSection = () => {
     {
       titleCard: t('projects.itemsCard.efood.titleCard'),
       text: t('projects.itemsCard.efood.text'),
-      stacks: [
-        logos.typescript,
-        logos.react,
-        logos.postgresql
-      ],
+      stacks: [logos.typescript, logos.react, logos.postgresql],
       links: {
         github: 'https://github.com/FabioMedeiros1000/efood',
         demo: 'https://efood-flm.vercel.app/'
@@ -72,10 +66,7 @@ const ProjectsSection = () => {
     {
       titleCard: t('projects.itemsCard.contactList.titleCard'),
       text: t('projects.itemsCard.contactList.text'),
-      stacks: [
-        logos.typescript,
-        logos.react
-      ],
+      stacks: [logos.typescript, logos.react],
       links: {
         github: 'https://github.com/FabioMedeiros1000/agenda-contatos-react',
         demo: 'https://agenda-contatos-react-sr13.vercel.app/'
@@ -84,12 +75,7 @@ const ProjectsSection = () => {
     {
       titleCard: t('projects.itemsCard.codeConnect.titleCard'),
       text: t('projects.itemsCard.codeConnect.text'),
-      stacks: [
-        logos.javascript,
-        logos.react,
-        logos.postgresql,
-        logos.docker
-      ],
+      stacks: [logos.javascript, logos.react, logos.postgresql, logos.docker],
       links: {
         github:
           'https://github.com/FabioMedeiros1000/code-connect-next/tree/main',
@@ -99,10 +85,7 @@ const ProjectsSection = () => {
     {
       titleCard: t('projects.itemsCard.todoList.titleCard'),
       text: t('projects.itemsCard.todoList.text'),
-      stacks: [
-        logos.typescript,
-        logos.react
-      ],
+      stacks: [logos.typescript, logos.react],
       links: {
         github: 'https://github.com/FabioMedeiros1000/todo-react',
         demo: 'https://todo-react-peach-three.vercel.app/'
@@ -183,7 +166,7 @@ const ProjectsSection = () => {
     <Section id="projects">
       <>
         <GlobalContainer>
-          <Title>{t('projects.title')}</Title>
+          <TitleGlobal>{t('projects.title')}</TitleGlobal>
           <ProjectsList
             items={items}
             trimText={trimText}

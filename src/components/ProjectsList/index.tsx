@@ -4,7 +4,7 @@ import ProjectsListDesktop from '../ProjectsListDesktop'
 import ProjectsListMobile from '../ProjectsListMobile'
 
 export type ProjectsListProps = {
-  items: CardProps[]
+  items: Omit<CardProps, 'index'>[]
   trimText: (text: string) => string
   handleCardClick: (itemTitle: string) => void
 } & HTMLAttributes<HTMLDivElement>

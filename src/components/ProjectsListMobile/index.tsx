@@ -1,6 +1,8 @@
 import Scrollbars from 'react-custom-scrollbars-2'
-import { ScrollbarContainer } from './styles'
+import { List, ScrollbarContainer } from './styles'
 import Card from '../Card'
+
+import { useTranslation } from 'react-i18next'
 
 import { ProjectsListProps } from '../ProjectsList'
 
@@ -8,21 +10,28 @@ const ProjectsListMobile = ({
   items,
   trimText,
   handleCardClick
-}: ProjectsListProps) => (
-  <ScrollbarContainer>
-    <Scrollbars style={{ height: 550 }}>
-      {items.map((item, index) => (
-        <li key={index}>
-          <Card
-            titleCard={item.titleCard}
-            text={trimText(item.text)}
-            title={`Clique aqui para ver mais detalhes sobre o projeto ${item.titleCard}`}
-            onClick={() => handleCardClick(item.titleCard as string)}
-          />
-        </li>
-      ))}
-    </Scrollbars>
-  </ScrollbarContainer>
-)
+}: ProjectsListProps) => {
+  const { t } = useTranslation()
+
+  return (
+    <ScrollbarContainer>
+      <Scrollbars style={{ height: 550 }}>
+        <List>
+          {items.map((item, index) => (
+            <li key={index}>
+              <Card
+                titleCard={item.titleCard}
+                text={trimText(item.text)}
+                index={index + 1}
+                title={`${t('projects.titleLabel')} ${item.titleCard.toLowerCase()}`}
+                onClick={() => handleCardClick(item.titleCard as string)}
+              />
+            </li>
+          ))}
+        </List>
+      </Scrollbars>
+    </ScrollbarContainer>
+  )
+}
 
 export default ProjectsListMobile
