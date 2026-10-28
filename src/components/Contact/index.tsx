@@ -54,7 +54,7 @@ const Contact = () => {
           <TitleGlobal>{t('contact.title')}</TitleGlobal>
           <Description>{t('contact.description')}</Description>
           <FormProvider {...methods}>
-            <ContactFormElement onSubmit={handleSubmit(onSubmit)}>
+            <ContactFormElement noValidate onSubmit={handleSubmit(onSubmit)}>
               <div className="grid-form">
                 <div className="two-columns">
                   <InputWithLabel

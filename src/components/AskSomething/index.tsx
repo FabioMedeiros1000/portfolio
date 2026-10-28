@@ -111,7 +111,7 @@ const AskSomething = () => {
           ))}
         </MessageContainer>
         <FormProvider {...methods}>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form noValidate onSubmit={handleSubmit(onSubmit)}>
             <Palette>
               <PaletteSearch>
                 <svg
