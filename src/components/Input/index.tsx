@@ -4,7 +4,6 @@ import { FormContainer } from '../../styles'
 import { useTranslation } from 'react-i18next'
 
 const Input = ({
-  borderColor,
   type,
   placeholder,
   fieldName,
@@ -17,7 +16,6 @@ const Input = ({
 }: FormInputProps) => {
   const { registerOptions, stringValue, setStringValue } = useFormHook({
     type,
-    borderColor,
     error,
     fieldName,
     validationMessage
@@ -26,7 +24,7 @@ const Input = ({
   const { t } = useTranslation()
 
   return (
-    <FormContainer borderColor={borderColor}>
+    <FormContainer $hasError={Boolean(error)}>
       {type === 'textarea' ? (
         <textarea
           {...register(fieldName, registerOptions)}

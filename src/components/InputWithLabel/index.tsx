@@ -1,13 +1,13 @@
 import { FormInputWithLabelProps } from '../../hooks/useFormHook'
 import Input from '../Input'
 
+import { Wrapper } from './styles'
+
 const InputWithLabel = ({ label, id, ...rest }: FormInputWithLabelProps) => (
-  <div style={{ display: 'block', width: '100%' }}>
-    <label htmlFor={id} style={{ fontWeight: 'bold' }}>
-      {label}
-    </label>
+  <Wrapper>
+    <label htmlFor={id}>{label}</label>
     <Input id={id} {...rest} />
-  </div>
+  </Wrapper>
 )
 
 export default InputWithLabel

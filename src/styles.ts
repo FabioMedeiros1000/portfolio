@@ -1,7 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components'
 
-import { breakpoints, colors, theme, weights } from './variables'
-import { FormProps } from './hooks/useFormHook'
+import { breakpoints, radii, theme, weights } from './variables'
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -60,45 +59,46 @@ const GlobalStyle = createGlobalStyle`
   }
 
   input, textarea {
-    padding: 8px;
-    background-color: transparent;
-    border: 1px solid ${colors.red};
     width: 100%;
-    border-radius: 5px;
-    color: ${colors.red};
-    font-family: Roboto, sans-serif;
-    font-size: 1rem;
+    background: ${theme.surfaceElevated};
+    border: 1px solid ${theme.hairline};
+    border-radius: ${radii.md};
+    padding: 10px 12px;
+    color: ${theme.ink};
+    font: inherit;
+    font-size: 16px;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+
+  input::placeholder, textarea::placeholder {
+    color: ${theme.ash};
   }
 
   input:focus, textarea:focus {
-    outline: 1px solid ${colors.blue};
+    outline: none;
+    border-color: ${theme.redFocus};
+    box-shadow: 0 0 0 3px ${theme.redSoft};
   }
 
   textarea {
-    height: 150px;
+    height: 140px;
     resize: none;
   }
 
   .two-columns {
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    column-gap: 32px;
-    row-gap: 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
 
-    @media (max-width: ${breakpoints.tablet}) {
-      flex-direction: column;
-      flex-wrap: wrap;
-      column-gap: 0px;
-      row-gap: 16px;
+    @media (max-width: ${breakpoints.layout}) {
+      grid-template-columns: 1fr;
     }
   }
 
   .grid-form {
-    display: flex;
-    flex-direction: column;
-    row-gap: 16px;
-    margin-top: 8px;
+    display: grid;
+    gap: 16px;
   }
 `
 
@@ -113,18 +113,14 @@ export const TitleGlobal = styled.h2`
   margin-bottom: 32px;
 `
 
-export const FormContainer = styled.div<Pick<FormProps, 'borderColor'>>`
-  font-weight: bold;
-  display: block;
+export const FormContainer = styled.div<{ $hasError?: boolean }>`
+  display: grid;
+  gap: 6px;
   width: 100%;
 
-  textarea {
-    border-color: ${(props) => props.borderColor || colors.red};
-    color: ${(props) => props.borderColor || colors.red};
-  }
-
   small {
-    font-weight: 400;
+    font-size: 13px;
+    color: ${(props) => (props.$hasError ? theme.red : theme.mute)};
   }
 `
 

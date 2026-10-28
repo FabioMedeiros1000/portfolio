@@ -12,7 +12,8 @@ import { sendEmail } from '../../services/emailService'
 import { ContactForm } from '../../types/contact'
 
 import { GlobalContainer, TitleGlobal } from '../../styles'
-import { colors, theme } from '../../variables'
+import { ContactFormElement, Description } from './styles'
+import { theme } from '../../variables'
 import InputWithLabel from '../InputWithLabel'
 
 const Contact = () => {
@@ -53,9 +54,9 @@ const Contact = () => {
       <>
         <GlobalContainer>
           <TitleGlobal>{t('contact.title')}</TitleGlobal>
-          <p>{t('contact.description')}</p>
+          <Description>{t('contact.description')}</Description>
           <FormProvider {...methods}>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <ContactFormElement onSubmit={handleSubmit(onSubmit)}>
               <div className="grid-form">
                 <div className="two-columns">
                   <InputWithLabel
@@ -67,7 +68,6 @@ const Contact = () => {
                     error={errors.name?.message as string}
                     minLength={5}
                     maxLength={100}
-                    borderColor={colors.red}
                   />
                   <InputWithLabel
                     label={t('contact.input.email')}
@@ -78,7 +78,6 @@ const Contact = () => {
                     minLength={5}
                     maxLength={70}
                     error={errors.email?.message as string}
-                    borderColor={colors.red}
                   />
                 </div>
                 <InputWithLabel
@@ -90,7 +89,6 @@ const Contact = () => {
                   error={errors.subject?.message as string}
                   minLength={5}
                   maxLength={255}
-                  borderColor={colors.red}
                 />
                 <InputWithLabel
                   label={t('contact.input.message')}
@@ -101,7 +99,6 @@ const Contact = () => {
                   error={errors.message?.message as string}
                   minLength={10}
                   maxLength={1200}
-                  borderColor={colors.red}
                 />
               </div>
               <Button
@@ -116,7 +113,7 @@ const Contact = () => {
                   t('contact.buttonText')
                 )}
               </Button>
-            </form>
+            </ContactFormElement>
           </FormProvider>
         </GlobalContainer>
         <ModalMessage

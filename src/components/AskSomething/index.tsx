@@ -8,7 +8,7 @@ import MessageBox from '../MessageBox'
 import { sendPrompt } from '../../services/iaService'
 
 import { GlobalContainer, TitleGlobal } from '../../styles'
-import { colors, theme } from '../../variables'
+import { theme } from '../../variables'
 import Loader from '../Loader'
 import { MessageContainer } from './styles'
 import { useTranslation } from 'react-i18next'
@@ -82,7 +82,6 @@ const AskSomething = () => {
               type="textarea"
               fieldName="prompt"
               validationMessage={t('validationMessage.required')}
-              borderColor={colors.white}
               minLength={5}
               maxLength={530}
               error={errors.prompt?.message as string}
