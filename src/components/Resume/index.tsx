@@ -1,9 +1,11 @@
 import { useTranslation } from 'react-i18next'
 
-import Button from '../Button'
+import { ButtonContainer } from '../Button/styles'
+import HeroStripes from '../HeroStripes'
 import Section from '../Section'
 
 import { GlobalContainer, TitleGlobal } from '../../styles'
+import { Action, Card, Content } from './styles'
 
 const Resume = () => {
   const { t, i18n } = useTranslation()
@@ -11,16 +13,24 @@ const Resume = () => {
   return (
     <Section id="resume">
       <GlobalContainer>
-        <TitleGlobal>{t('resume.title')}</TitleGlobal>
-        <p>{t('resume.description')}</p>
-        <a
-          href={i18n.language === 'pt' ? '/curriculo.pdf' : '/resume.pdf'}
-          download
-        >
-          <Button variant="primary" title={t('resume.titleLabel')}>
-            {t('resume.buttonText')}
-          </Button>
-        </a>
+        <Card>
+          <HeroStripes variant="compact" />
+          <Content>
+            <TitleGlobal>{t('resume.title')}</TitleGlobal>
+            <p>{t('resume.description')}</p>
+          </Content>
+          <Action>
+            <ButtonContainer
+              as="a"
+              $variant="primary"
+              href={i18n.language === 'pt' ? '/curriculo.pdf' : '/resume.pdf'}
+              download
+              title={t('resume.titleLabel')}
+            >
+              {t('resume.buttonText')} <span aria-hidden="true">↓</span>
+            </ButtonContainer>
+          </Action>
+        </Card>
       </GlobalContainer>
     </Section>
   )
