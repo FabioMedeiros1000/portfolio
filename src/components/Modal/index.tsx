@@ -1,6 +1,6 @@
 import { forwardRef, ReactNode, useImperativeHandle, useRef } from 'react'
 
-import { Dialog, Header } from './styles'
+import { CloseButton, Dialog, Header } from './styles'
 import close from '../../assets/close.svg'
 
 type ModalProps = {
@@ -37,9 +37,16 @@ const Modal = forwardRef<ModalHandles, ModalProps>(
     }))
 
     return (
-      <Dialog ref={dialogRef}>
+      <Dialog
+        ref={dialogRef}
+        onClick={(e) => {
+          if (e.target === e.currentTarget) closeModal()
+        }}
+      >
         <Header>{titleModal}</Header>
-        <img src={close} onClick={closeModal} alt="Ícone para fechar a modal" />
+        <CloseButton type="button" aria-label="Fechar" onClick={closeModal}>
+          <img src={close} alt="" />
+        </CloseButton>
         {children}
       </Dialog>
     )

@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import Button from '../Button'
 import Modal, { ModalHandles } from '../Modal'
 
-import { Container, Skills } from './styles'
+import { Container, Links, Skills } from './styles'
 import SkillGroup from '../SkillGroup'
 
 export type ModalProps = {
@@ -40,12 +40,18 @@ const ModalProject = forwardRef<ModalHandles, ModalProps>(
         <Container>
           <p>{text}</p>
           <h3>{t('modalProject.links')}</h3>
-          <a href={links.github} target="_blank" tabIndex={-1}>
-            <Button variant="primary">{t('modalProject.button.github')}</Button>
-          </a>
-          <a href={links.demo} target="_blank" tabIndex={-1}>
-            <Button variant="secondary">{t('modalProject.button.demo')}</Button>
-          </a>
+          <Links>
+            <a href={links.github} target="_blank" tabIndex={-1}>
+              <Button variant="primary">
+                {t('modalProject.button.github')}
+              </Button>
+            </a>
+            <a href={links.demo} target="_blank" tabIndex={-1}>
+              <Button variant="secondary">
+                {t('modalProject.button.demo')}
+              </Button>
+            </a>
+          </Links>
           <Skills>
             {stacks.map((stack, index) => (
               <SkillGroup key={index} logo={stack} variant="icon" />

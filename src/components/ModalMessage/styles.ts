@@ -1,8 +1,13 @@
 import styled from 'styled-components'
-import { colors } from '../../variables'
+import { theme } from '../../variables'
 
 export const Container = styled.div`
-  padding: 36px;
-  background-color: ${colors.red};
-  color: ${colors.white};
+  padding: 24px;
+  color: ${theme.body};
+
+  a,
+  strong,
+  b {
+    color: ${theme.ink};
+  }
 `

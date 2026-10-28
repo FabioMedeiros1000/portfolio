@@ -1,37 +1,58 @@
 import styled from 'styled-components'
-import { breakpoints, colors, weights } from '../../variables'
+import { radii, theme, weights } from '../../variables'
 
 export const Dialog = styled.dialog`
-  width: 1076px;
+  width: min(720px, calc(100% - 32px));
+  padding: 0;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: none;
-
-  > img {
-    position: absolute;
-    top: 24px;
-    right: 24px;
-    cursor: pointer;
-
-    @media (max-width: ${breakpoints.tablet}) {
-      top: 8px;
-      right: 8px;
-    }
-  }
+  background-color: ${theme.surface};
+  color: ${theme.body};
+  border: 1px solid ${theme.hairline};
+  border-radius: ${radii.xl};
+  overflow: hidden;
 
   &::backdrop {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: ${theme.backdrop};
+    backdrop-filter: blur(4px);
   }
 `
 
 export const Header = styled.header`
-  padding: 26px;
-  text-align: center;
-  background-color: ${colors.blue};
-  color: ${colors.white};
-  font-size: 2.25rem;
+  padding: 20px 56px 20px 24px;
+  border-bottom: 1px solid ${theme.hairline};
+  background-color: ${theme.surfaceElevated};
+  color: ${theme.ink};
+  font-size: 20px;
   font-weight: ${weights.medium};
-  line-height: 2.9375rem;
+  letter-spacing: 0.2px;
+  text-align: left;
+`
+
+export const CloseButton = styled.button`
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: ${radii.md};
+  background: transparent;
+  border: 1px solid transparent;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: ${theme.surfaceCard};
+    border-color: ${theme.hairline};
+  }
+
+  img {
+    width: 14px;
+    height: 14px;
+    opacity: 0.7;
+  }
 `
