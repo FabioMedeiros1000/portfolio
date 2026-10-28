@@ -1,29 +1,23 @@
 import styled from 'styled-components'
-import { breakpoints, colors, weights } from '../../variables'
+import { radii, theme } from '../../variables'
 
 export const SelectContainer = styled.select`
-  display: flex;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  padding: 8px;
-  background-color: ${colors.white};
-  color: ${colors.red};
-  font-weight: ${weights.bold};
+  background: ${theme.surfaceElevated};
+  color: ${theme.ink};
+  border: 1px solid ${theme.hairline};
+  border-radius: ${radii.md};
+  height: 32px;
+  padding: 0 10px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid ${theme.red};
+    outline-offset: 2px;
+  }
 
   option {
-    font-weight: ${weights.bold};
-  }
-
-  @media (min-width: ${breakpoints.tablet}) {
-    position: absolute;
-    right: -34px;
-    top: 31px;
-  }
-
-  @media (min-width: ${breakpoints.pc}) {
-    position: absolute;
-    right: -179px;
-    top: 38px;
+    background: ${theme.surface};
   }
 `

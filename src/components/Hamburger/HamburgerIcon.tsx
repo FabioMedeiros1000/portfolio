@@ -1,4 +1,5 @@
 import { Fade } from 'hamburger-react'
+import { theme } from '../../variables'
 import { ContainerIcon } from './styles'
 
 type HamburgerIconProps = {
@@ -13,8 +14,9 @@ const HamburgerIcon = ({ isOpen, onClick }: HamburgerIconProps) => {
         toggled={isOpen}
         toggle={onClick}
         direction="right"
-        size={40}
+        size={28}
         duration={0.5}
+        color={theme.ink}
       />
     </ContainerIcon>
   )

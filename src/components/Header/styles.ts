@@ -1,27 +1,45 @@
 import styled from 'styled-components'
-import { breakpoints } from '../../variables'
+import { theme } from '../../variables'
+
+export const HeaderWrapper = styled.header`
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: ${theme.headerBg};
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid ${theme.hairlineSoft};
+`
 
 export const HeaderContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  position: relative;
+  gap: 24px;
+  height: 56px;
 
   h1 {
-    width: min-content;
+    font-size: 15px;
+    font-weight: 600;
+    color: ${theme.ink};
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
 
-  @media (max-width: ${breakpoints.pc}) {
-    gap: 12px;
+  h1::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    background: linear-gradient(135deg, ${theme.red}, ${theme.redDeep});
   }
 
-  @media (max-width: ${breakpoints.tablet}) {
-    .flex-col {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+  .flex-col {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
   }
 `

@@ -5,7 +5,7 @@ import Section from '../Section'
 import HamburgerIcon from '../Hamburger/HamburgerIcon'
 import HamburgerMenu from '../Hamburger/HamburgerMenu'
 
-import { HeaderContent } from './styles'
+import { HeaderContent, HeaderWrapper } from './styles'
 import { GlobalContainer } from '../../styles'
 import Select from '../Select'
 import Navbar from '../Navbar'
@@ -27,22 +27,27 @@ const Header = () => {
   }
 
   return (
-    <Section variant="bare">
-      <GlobalContainer>
-        <HeaderContent>
-          <h1>Fullstack Developer</h1>
-          <Navbar />
-          <div className="flex-col">
-            <Select
-              selectedLanguage={selectedLanguage}
-              handleLanguageChange={handleLanguageChange}
-            />
-            <HamburgerIcon isOpen={isMenuOpen} onClick={toggleMenuHamburger} />
-          </div>
-        </HeaderContent>
-        <HamburgerMenu isOpen={isMenuOpen} onClick={toggleMenuHamburger} />
-      </GlobalContainer>
-    </Section>
+    <HeaderWrapper>
+      <Section variant="bare">
+        <GlobalContainer>
+          <HeaderContent>
+            <h1>Fullstack Developer</h1>
+            <Navbar />
+            <div className="flex-col">
+              <Select
+                selectedLanguage={selectedLanguage}
+                handleLanguageChange={handleLanguageChange}
+              />
+              <HamburgerIcon
+                isOpen={isMenuOpen}
+                onClick={toggleMenuHamburger}
+              />
+            </div>
+          </HeaderContent>
+          <HamburgerMenu isOpen={isMenuOpen} onClick={toggleMenuHamburger} />
+        </GlobalContainer>
+      </Section>
+    </HeaderWrapper>
   )
 }
 

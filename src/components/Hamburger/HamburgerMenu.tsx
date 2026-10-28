@@ -11,7 +11,7 @@ const HamburgerMenu = ({ isOpen, onClick }: HamburgerMenuProps) => {
   const { t } = useTranslation()
 
   return (
-    <MenuContainer isOpen={isOpen}>
+    <MenuContainer $isOpen={isOpen}>
       <ul>
         <li>
           <a href="#about" onClick={onClick}>

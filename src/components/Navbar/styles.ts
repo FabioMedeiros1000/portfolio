@@ -1,15 +1,12 @@
 import styled from 'styled-components'
-import { breakpoints, colors } from '../../variables'
+import { breakpoints, radii, theme } from '../../variables'
 
 export const NavbarContainer = styled.nav`
-  width: 100%;
   display: block;
-
-  margin-left: 56px;
 
   ul {
     display: flex;
-    justify-content: space-between;
+    gap: 4px;
     padding: 0;
     margin: 0;
     list-style: none;
@@ -17,46 +14,30 @@ export const NavbarContainer = styled.nav`
 
   li {
     cursor: pointer;
-    display: inline-block;
     white-space: nowrap;
   }
 
   a {
-    position: relative;
-    padding-bottom: 4px;
     display: inline-block;
     text-decoration: none;
-    color: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    color: ${theme.mute};
+    padding: 4px 12px;
+    border-radius: ${radii.full};
+    transition:
+      color 0.15s,
+      background 0.15s;
+    white-space: nowrap;
   }
 
-  a::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background-color: ${colors.white};
-    transition: width 0.3s ease;
+  a:hover {
+    color: ${theme.ink};
+    background: ${theme.surfaceElevated};
   }
 
-  a:hover::before {
-    width: 100%;
-  }
-
-  @media (max-width: ${breakpoints.pc}) {
-    margin-left: 0;
-    ul {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-
-      li {
-        margin: 0 auto;
-      }
-    }
-  }
-
-  @media (max-width: ${breakpoints.tablet}) {
+  @media (max-width: ${breakpoints.layout}) {
     display: none;
   }
 `
