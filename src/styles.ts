@@ -89,6 +89,7 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    align-items: start;
     gap: 16px;
 
     @media (max-width: ${breakpoints.layout}) {

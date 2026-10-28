@@ -47,7 +47,21 @@ const useFormHook = ({
     })
   }
 
-  return { registerOptions }
+  // Traduz na renderização para acompanhar a troca de idioma
+  const getErrorMessage = (errorType?: string) => {
+    switch (errorType) {
+      case 'pattern':
+        return t('validationMessage.email')
+      case 'minLength':
+        return t('validationMessage.minLength', { min: minLength })
+      case 'maxLength':
+        return t('validationMessage.maxLength', { max: maxLength })
+      default:
+        return validationMessage
+    }
+  }
+
+  return { registerOptions, getErrorMessage }
 }
 
 export default useFormHook

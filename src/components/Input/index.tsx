@@ -14,7 +14,7 @@ const Input = ({
   id,
   ...rest
 }: FormInputProps) => {
-  const { registerOptions } = useFormHook({
+  const { registerOptions, getErrorMessage } = useFormHook({
     type,
     error,
     fieldName,
@@ -22,7 +22,8 @@ const Input = ({
     minLength,
     maxLength
   })
-  const { register } = useFormContext()
+  const { register, getFieldState, formState } = useFormContext()
+  const errorType = getFieldState(fieldName, formState).error?.type
   const stringValue: string = useWatch({ name: fieldName }) ?? ''
   const { t } = useTranslation()
 
@@ -47,7 +48,10 @@ const Input = ({
           id={id}
         />
       )}
-      {minLength &&
+      {error ? (
+        <small>{getErrorMessage(errorType)}</small>
+      ) : (
+        minLength &&
         maxLength &&
         stringValue.length >= minLength &&
         stringValue.length < maxLength && (
@@ -56,18 +60,7 @@ const Input = ({
               count: maxLength - stringValue.length
             })}
           </small>
-        )}
-      {Boolean(error) && stringValue.length === 0 && (
-        <small>{t('validationMessage.required')}</small>
-      )}
-      {Boolean(error) && minLength && stringValue.length < minLength && (
-        <small>
-          <br />
-          {t('validationMessage.minLength', { min: minLength })}
-        </small>
-      )}
-      {Boolean(error) && maxLength && stringValue.length === maxLength && (
-        <small>{t('validationMessage.maxLength', { max: maxLength })}</small>
+        )
       )}
     </FormContainer>
   )
