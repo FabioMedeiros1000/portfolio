@@ -8,7 +8,7 @@ import MessageBox from '../MessageBox'
 import { sendPrompt } from '../../services/iaService'
 
 import { GlobalContainer, TitleGlobal } from '../../styles'
-import { colors } from '../../variables'
+import { colors, theme } from '../../variables'
 import Loader from '../Loader'
 import { MessageContainer } from './styles'
 import { useTranslation } from 'react-i18next'
@@ -89,11 +89,11 @@ const AskSomething = () => {
               placeholder={t('askMe.placeholder')}
             />
             <Button
-              bgColor="white"
+              variant="accent"
               type="submit"
               title={t('askMe.buttonTitle')}
             >
-              {loading ? <Loader color={colors.red} /> : t('askMe.button')}
+              {loading ? <Loader color={theme.primary} /> : t('askMe.button')}
             </Button>
           </form>
         </FormProvider>

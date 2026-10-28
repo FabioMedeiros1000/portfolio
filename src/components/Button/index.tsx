@@ -2,13 +2,18 @@ import { ButtonContainer } from './styles'
 
 export type Props = {
   children: React.ReactNode
-  bgColor: 'red' | 'white'
+  variant?: 'primary' | 'accent' | 'secondary'
   type?: 'button' | 'submit'
 } & React.ButtonHTMLAttributes<HTMLButtonElement>
 
-const Button = ({ children, bgColor, type = 'button', ...rest }: Props) => {
+const Button = ({
+  children,
+  variant = 'accent',
+  type = 'button',
+  ...rest
+}: Props) => {
   return (
-    <ButtonContainer as="button" type={type} bgColor={bgColor} {...rest}>
+    <ButtonContainer as="button" type={type} $variant={variant} {...rest}>
       {children}
     </ButtonContainer>
   )

@@ -41,10 +41,10 @@ const ModalProject = forwardRef<ModalHandles, ModalProps>(
           <p>{text}</p>
           <h3>{t('modalProject.links')}</h3>
           <a href={links.github} target="_blank" tabIndex={-1}>
-            <Button bgColor="white">{t('modalProject.button.github')}</Button>
+            <Button variant="primary">{t('modalProject.button.github')}</Button>
           </a>
           <a href={links.demo} target="_blank" tabIndex={-1}>
-            <Button bgColor="white">{t('modalProject.button.demo')}</Button>
+            <Button variant="secondary">{t('modalProject.button.demo')}</Button>
           </a>
           <Skills>
             {stacks.map((stack, index) => (

@@ -1,24 +1,71 @@
-import styled from 'styled-components'
-import { breakpoints, colors, weights } from '../../variables'
+import styled, { css } from 'styled-components'
+import { radii, theme } from '../../variables'
 import { Props } from '.'
 
-export const ButtonContainer = styled.button<Omit<Props, 'children'>>`
-  padding: 12px;
-  font-weight: ${weights.bold};
-  font-size: 16px;
-  background-color: ${(props) =>
-    props.bgColor === 'red' ? colors.red : colors.white};
-  border: none;
-  color: ${(props) => (props.bgColor === 'red' ? colors.white : colors.red)};
-  border-radius: 8px;
-  cursor: pointer;
-  margin-top: 8px;
-  display: inline-block;
-  width: 250px;
+type Variant = NonNullable<Props['variant']>
 
-  @media (max-width: ${breakpoints.tablet}) {
-    padding: 8px;
-    display: block;
-    width: 100%;
+const variants = {
+  primary: css`
+    background-color: ${theme.primary};
+    color: ${theme.onPrimary};
+
+    &:hover:not(:disabled) {
+      background-color: ${theme.primaryPressed};
+    }
+  `,
+  accent: css`
+    background: linear-gradient(180deg, ${theme.accentTop}, ${theme.redDeep});
+    color: ${theme.primary};
+    border-color: ${theme.hairlineStrong};
+
+    &:hover:not(:disabled) {
+      background: linear-gradient(
+        180deg,
+        ${theme.accentTopHover},
+        ${theme.accentBottomHover}
+      );
+    }
+  `,
+  secondary: css`
+    background-color: transparent;
+    color: ${theme.ink};
+    border-color: ${theme.hairline};
+
+    &:hover:not(:disabled) {
+      border-color: ${theme.hairlineStrong};
+      background-color: ${theme.surfaceElevated};
+    }
+  `
+}
+
+export const ButtonContainer = styled.button<{ $variant: Variant }>`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 18px;
+  border-radius: ${radii.md};
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  transition:
+    background 0.15s,
+    border-color 0.15s;
+
+  ${(props) => variants[props.$variant]}
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &:focus-visible {
+    outline: 2px solid ${theme.red};
+    outline-offset: 2px;
   }
 `

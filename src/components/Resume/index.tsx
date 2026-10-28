@@ -17,7 +17,7 @@ const Resume = () => {
           href={i18n.language === 'pt' ? '/curriculo.pdf' : '/resume.pdf'}
           download
         >
-          <Button bgColor="white" title={t('resume.titleLabel')}>
+          <Button variant="primary" title={t('resume.titleLabel')}>
             {t('resume.buttonText')}
           </Button>
         </a>

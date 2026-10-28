@@ -12,7 +12,7 @@ import { sendEmail } from '../../services/emailService'
 import { ContactForm } from '../../types/contact'
 
 import { GlobalContainer, TitleGlobal } from '../../styles'
-import { colors } from '../../variables'
+import { colors, theme } from '../../variables'
 import InputWithLabel from '../InputWithLabel'
 
 const Contact = () => {
@@ -107,11 +107,11 @@ const Contact = () => {
               <Button
                 disabled={isLoading}
                 type="submit"
-                bgColor="red"
+                variant="accent"
                 title={t('contact.titleLabel')}
               >
                 {isLoading ? (
-                  <Loader color={colors.white} />
+                  <Loader color={theme.primary} />
                 ) : (
                   t('contact.buttonText')
                 )}
