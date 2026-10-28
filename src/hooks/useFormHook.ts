@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 export type FormProps = {
@@ -25,7 +24,6 @@ const useFormHook = ({
   maxLength
 }: FormProps) => {
   const { t } = useTranslation()
-  const [stringValue, setStringValue] = useState('')
 
   const registerOptions = {
     required: validationMessage,
@@ -49,7 +47,7 @@ const useFormHook = ({
     })
   }
 
-  return { registerOptions, stringValue, setStringValue }
+  return { registerOptions }
 }
 
 export default useFormHook

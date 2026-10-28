@@ -1,4 +1,4 @@
-import { useFormContext } from 'react-hook-form'
+import { useFormContext, useWatch } from 'react-hook-form'
 import useFormHook, { FormInputProps } from '../../hooks/useFormHook'
 import { FormContainer } from '../../styles'
 import { useTranslation } from 'react-i18next'
@@ -14,13 +14,16 @@ const Input = ({
   id,
   ...rest
 }: FormInputProps) => {
-  const { registerOptions, stringValue, setStringValue } = useFormHook({
+  const { registerOptions } = useFormHook({
     type,
     error,
     fieldName,
-    validationMessage
+    validationMessage,
+    minLength,
+    maxLength
   })
   const { register } = useFormContext()
+  const stringValue: string = useWatch({ name: fieldName }) ?? ''
   const { t } = useTranslation()
 
   return (
@@ -32,7 +35,6 @@ const Input = ({
           placeholder={placeholder}
           minLength={minLength}
           maxLength={maxLength}
-          onChange={(event) => setStringValue(event.target.value)}
           id={id}
         />
       ) : (
@@ -42,7 +44,6 @@ const Input = ({
           placeholder={placeholder}
           minLength={minLength}
           maxLength={maxLength}
-          onChange={(event) => setStringValue(event.target.value)}
           id={id}
         />
       )}
