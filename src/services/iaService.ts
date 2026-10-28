@@ -1,27 +1,13 @@
+import { request } from './httpClient'
+
 export async function sendPrompt(
   prompt: string
 ): Promise<{ response: string }> {
-  try {
-    const API_URL = import.meta.env.VITE_BACKEND_URL
-    const response = await fetch(`${API_URL}/ai/ask`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ prompt })
-    })
+  const data = await request<{ response: string }>('/ai/ask', {
+    method: 'POST',
+    body: { prompt },
+    timeoutMs: 30000
+  })
 
-    if (!response.ok) {
-      throw new Error(`Erro: ${response.statusText}`)
-    }
-
-    const data = await response.json()
-
-    return { response: data.response }
-  } catch (error: unknown) {
-    if (error instanceof Error) {
-      throw new Error(error.message || 'Ocorreu um erro na IA')
-    }
-    throw new Error('Ocorreu um erro na IA')
-  }
+  return { response: data.response }
 }

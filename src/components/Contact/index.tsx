@@ -9,23 +9,17 @@ import Loader from '../Loader'
 
 import { ModalHandles } from '../Modal'
 import { sendEmail } from '../../services/emailService'
+import { ContactForm } from '../../types/contact'
 
 import { GlobalContainer, TitleGlobal } from '../../styles'
 import { colors } from '../../variables'
 import InputWithLabel from '../InputWithLabel'
 
-export type FormType = {
-  name: string
-  email: string
-  subject: string
-  message: string
-}
-
 const Contact = () => {
   const modalRef = useRef<ModalHandles>(null)
   const { t } = useTranslation()
 
-  const methods = useForm<FormType>()
+  const methods = useForm<ContactForm>()
 
   const {
     handleSubmit,
@@ -35,7 +29,7 @@ const Contact = () => {
   const [isSendSuccess, setIsSendSuccess] = useState<boolean | null>(null)
   const [isLoading, setIsLoading] = useState(false)
 
-  const onSubmit = async (data: FormType): Promise<void> => {
+  const onSubmit = async (data: ContactForm): Promise<void> => {
     setIsLoading(true)
 
     try {
