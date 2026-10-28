@@ -91,6 +91,7 @@
     "slow": "The server is waking up. The first answer may take up to a minute.",
     "error": {
       "timeout": "The AI took too long to answer. Please try again in a moment.",
+      "rateLimit": "You've asked too many questions in a short time. Please wait a few minutes and try again.",
       "generic": "I couldn't reach the AI right now. Please try again in a moment."
     }
   },
@@ -107,11 +108,13 @@
   "modalMessage": {
     "title": {
       "success": "Message sent successfully!",
-      "failure": "Something went wrong while sending the message!"
+      "failure": "Something went wrong while sending the message!",
+      "rateLimit": "Too many messages sent"
     },
     "text": {
       "success": "<b>Message sent successfully!</b><br />I'm very glad you reached out! I will reply to your email as soon as possible!",
-      "failure": "<b>Unfortunately, we couldn't send your message at this moment!</b><br />This might have happened due to a server error or connection issues. Please check if all form fields are filled out correctly and try resending the message. If the problem persists, feel free to contact me directly at: fabio.leandro.medeiros@gmail.com. <br />Thank you for your patience!"
+      "failure": "<b>Unfortunately, we couldn't send your message at this moment!</b><br />This might have happened due to a server error or connection issues. Please check if all form fields are filled out correctly and try resending the message. If the problem persists, feel free to contact me directly at: fabio.leandro.medeiros@gmail.com. <br />Thank you for your patience!",
+      "rateLimit": "<b>You've already sent several messages in the last hour.</b><br />Please wait a little and try again, or write directly to fabio.leandro.medeiros@gmail.com."
     }
   },
   "validationMessage": {

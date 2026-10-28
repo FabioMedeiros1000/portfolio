@@ -8,7 +8,8 @@ import ModalMessage from '../ModalMessage'
 
 import { ModalHandles } from '../Modal'
 import { sendEmail } from '../../services/emailService'
-import { ContactForm } from '../../types/contact'
+import { ApiError } from '../../services/httpClient'
+import { ContactForm, SendStatus } from '../../types/contact'
 
 import { GlobalContainer, TitleGlobal } from '../../styles'
 import { ContactFormElement, Description } from './styles'
@@ -25,7 +26,7 @@ const Contact = () => {
     formState: { errors }
   } = methods
 
-  const [isSendSuccess, setIsSendSuccess] = useState<boolean | null>(null)
+  const [sendStatus, setSendStatus] = useState<SendStatus | null>(null)
   const [isLoading, setIsLoading] = useState(false)
 
   const onSubmit = async (data: ContactForm): Promise<void> => {
@@ -33,10 +34,14 @@ const Contact = () => {
 
     try {
       await sendEmail(data)
-      setIsSendSuccess(true)
+      setSendStatus('success')
       methods.reset()
     } catch (error) {
-      setIsSendSuccess(false)
+      setSendStatus(
+        error instanceof ApiError && error.status === 429
+          ? 'rateLimit'
+          : 'failure'
+      )
     } finally {
       setIsLoading(false)
       modalRef.current?.openModal()
@@ -44,7 +49,7 @@ const Contact = () => {
   }
 
   const handleModalClose = () => {
-    setIsSendSuccess(null)
+    setSendStatus(null)
   }
 
   return (
@@ -112,7 +117,7 @@ const Contact = () => {
         </GlobalContainer>
         <ModalMessage
           ref={modalRef}
-          isSendSuccess={isSendSuccess}
+          sendStatus={sendStatus}
           onClose={handleModalClose}
         />
       </>

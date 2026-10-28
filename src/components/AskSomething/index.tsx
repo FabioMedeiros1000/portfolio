@@ -30,7 +30,7 @@ type IaAnswerType = {
 
 type ChatWithIA = UserInputType & IaAnswerType
 
-type IaError = 'timeout' | 'generic'
+type IaError = 'timeout' | 'rateLimit' | 'generic'
 
 const SLOW_WARNING_MS = 8000
 
@@ -60,7 +60,13 @@ const AskSomething = () => {
       ])
       methods.reset()
     } catch (err: unknown) {
-      setError(err instanceof ApiError && err.isTimeout ? 'timeout' : 'generic')
+      if (err instanceof ApiError && err.status === 429) {
+        setError('rateLimit')
+      } else if (err instanceof ApiError && err.isTimeout) {
+        setError('timeout')
+      } else {
+        setError('generic')
+      }
     } finally {
       setLoading(false)
     }

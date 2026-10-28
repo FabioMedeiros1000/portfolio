@@ -4,3 +4,5 @@ export type ContactForm = {
   subject: string
   message: string
 }
+
+export type SendStatus = 'success' | 'failure' | 'rateLimit'

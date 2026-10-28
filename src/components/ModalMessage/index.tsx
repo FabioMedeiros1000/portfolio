@@ -2,15 +2,16 @@ import { forwardRef, useImperativeHandle, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import Modal, { ModalHandles } from '../Modal'
+import { SendStatus } from '../../types/contact'
 import { Container } from './styles'
 
 type Props = {
-  isSendSuccess: boolean | null
+  sendStatus: SendStatus | null
   onClose: () => void
 }
 
 const ModalMessage = forwardRef<ModalHandles, Props>(
-  ({ isSendSuccess, onClose }, ref) => {
+  ({ sendStatus, onClose }, ref) => {
     const modalRef = useRef<ModalHandles>(null)
     const { t } = useTranslation()
 
@@ -31,26 +32,13 @@ const ModalMessage = forwardRef<ModalHandles, Props>(
     return (
       <Modal
         ref={modalRef}
-        titleModal={
-          isSendSuccess === true
-            ? t('modalMessage.title.success')
-            : isSendSuccess === false
-              ? t('modalMessage.title.failure')
-              : ''
-        }
+        titleModal={sendStatus ? t(`modalMessage.title.${sendStatus}`) : ''}
       >
         <Container>
-          {isSendSuccess === true && (
+          {sendStatus && (
             <p
               dangerouslySetInnerHTML={{
-                __html: t('modalMessage.text.success')
-              }}
-            />
-          )}
-          {isSendSuccess === false && (
-            <p
-              dangerouslySetInnerHTML={{
-                __html: t('modalMessage.text.failure')
+                __html: t(`modalMessage.text.${sendStatus}`)
               }}
             />
           )}
