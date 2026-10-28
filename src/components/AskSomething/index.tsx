@@ -6,6 +6,7 @@ import Button from '../Button'
 import MessageBox from '../MessageBox'
 
 import { sendPrompt } from '../../services/iaService'
+import { ApiError } from '../../services/httpClient'
 
 import { GlobalContainer, TitleGlobal } from '../../styles'
 import {
@@ -13,7 +14,8 @@ import {
   MessageContainer,
   Palette,
   PaletteFoot,
-  PaletteSearch
+  PaletteSearch,
+  Status
 } from './styles'
 import { useTranslation } from 'react-i18next'
 import Input from '../Input'
@@ -28,6 +30,10 @@ type IaAnswerType = {
 
 type ChatWithIA = UserInputType & IaAnswerType
 
+type IaError = 'timeout' | 'generic'
+
+const SLOW_WARNING_MS = 8000
+
 const AskSomething = () => {
   const methods = useForm<UserInputType>()
   const {
@@ -37,12 +43,15 @@ const AskSomething = () => {
 
   const [chat, setChat] = useState<ChatWithIA[]>([])
   const [loading, setLoading] = useState(false)
+  const [slow, setSlow] = useState(false)
+  const [error, setError] = useState<IaError | null>(null)
 
   const lastMessageRef = useRef<HTMLDivElement | null>(null)
   const { t } = useTranslation()
 
   const onSubmit = async (data: UserInputType) => {
     try {
+      setError(null)
       setLoading(true)
       const result = await sendPrompt(data.prompt)
       setChat((previousData) => [
@@ -50,6 +59,8 @@ const AskSomething = () => {
         { prompt: data.prompt, response: result.response }
       ])
       methods.reset()
+    } catch (err: unknown) {
+      setError(err instanceof ApiError && err.isTimeout ? 'timeout' : 'generic')
     } finally {
       setLoading(false)
     }
@@ -63,6 +74,16 @@ const AskSomething = () => {
       if (!loading) handleSubmit(onSubmit)()
     }
   }
+
+  useEffect(() => {
+    if (!loading) {
+      setSlow(false)
+      return
+    }
+
+    const timeoutId = setTimeout(() => setSlow(true), SLOW_WARNING_MS)
+    return () => clearTimeout(timeoutId)
+  }, [loading])
 
   useEffect(() => {
     if (lastMessageRef.current) {
@@ -130,6 +151,14 @@ const AskSomething = () => {
                 </Button>
               </PaletteFoot>
             </Palette>
+            {loading && slow && (
+              <Status role="status">{t('askMe.slow')}</Status>
+            )}
+            {error && (
+              <Status role="alert" $error>
+                {t(`askMe.error.${error}`)}
+              </Status>
+            )}
           </form>
         </FormProvider>
       </GlobalContainer>

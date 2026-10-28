@@ -87,7 +87,12 @@
     "button": "Ask",
     "placeholder": "Ask me anything about myself, and an AI trained with my data will answer you!",
     "buttonTitle": "Click here to ask your question",
-    "assistantLabel": "AI assistant"
+    "assistantLabel": "AI assistant",
+    "slow": "The server is waking up. The first answer may take up to a minute.",
+    "error": {
+      "timeout": "The AI took too long to answer. Please try again in a moment.",
+      "generic": "I couldn't reach the AI right now. Please try again in a moment."
+    }
   },
   "footer": {
     "titleLabel": "Click here to access {{text}}"

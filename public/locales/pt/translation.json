@@ -87,7 +87,12 @@
     "button": "Pergunte",
     "placeholder": "Faça alguma pergunta sobre mim e uma IA treinada com meus dados te responderá!",
     "buttonTitle": "Clique aqui para tirar a sua dúvida",
-    "assistantLabel": "Assistente de IA"
+    "assistantLabel": "Assistente de IA",
+    "slow": "O servidor está acordando. A primeira resposta pode levar até um minuto.",
+    "error": {
+      "timeout": "A IA demorou demais para responder. Tente de novo em instantes.",
+      "generic": "Não consegui falar com a IA agora. Tente de novo em instantes."
+    }
   },
   "footer": {
     "titleLabel": "Clique aqui para acessar {{text}}"

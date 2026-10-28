@@ -75,6 +75,28 @@ export const PaletteFoot = styled.div`
   }
 `
 
+export const Status = styled.p<{ $error?: boolean }>`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 14px;
+  color: ${(props) => (props.$error ? theme.red : theme.mute)};
+
+  ${(props) =>
+    props.$error &&
+    `
+    &::before {
+      content: '';
+      flex: none;
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      background: linear-gradient(135deg, ${theme.red}, ${theme.redDeep});
+    }
+  `}
+`
+
 export const Kbd = styled.span`
   display: inline-grid;
   place-items: center;
