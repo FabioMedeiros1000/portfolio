@@ -8,8 +8,6 @@ import MessageBox from '../MessageBox'
 import { sendPrompt } from '../../services/iaService'
 
 import { GlobalContainer, TitleGlobal } from '../../styles'
-import { theme } from '../../variables'
-import Loader from '../Loader'
 import {
   Kbd,
   MessageContainer,
@@ -125,16 +123,10 @@ const AskSomething = () => {
                   variant="accent"
                   type="submit"
                   title={t('askMe.buttonTitle')}
-                  disabled={loading}
+                  loading={loading}
                 >
-                  {loading ? (
-                    <Loader color={theme.primary} />
-                  ) : (
-                    <>
-                      {t('askMe.button')}
-                      <Kbd aria-hidden="true">↵</Kbd>
-                    </>
-                  )}
+                  {t('askMe.button')}
+                  <Kbd aria-hidden="true">↵</Kbd>
                 </Button>
               </PaletteFoot>
             </Palette>

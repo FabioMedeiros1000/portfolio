@@ -39,6 +39,7 @@ const variants = {
 }
 
 export const ButtonContainer = styled.button<{ $variant: Variant }>`
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -68,4 +69,16 @@ export const ButtonContainer = styled.button<{ $variant: Variant }>`
     outline: 2px solid ${theme.red};
     outline-offset: 2px;
   }
+`
+
+export const Label = styled.span<{ $hidden: boolean }>`
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  visibility: ${(props) => (props.$hidden ? 'hidden' : 'visible')};
+`
+
+export const Spinner = styled.span`
+  position: absolute;
+  inset: 0;
 `

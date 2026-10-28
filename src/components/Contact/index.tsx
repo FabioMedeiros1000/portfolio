@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next'
 import Button from '../Button'
 import Section from '../Section'
 import ModalMessage from '../ModalMessage'
-import Loader from '../Loader'
 
 import { ModalHandles } from '../Modal'
 import { sendEmail } from '../../services/emailService'
@@ -13,7 +12,6 @@ import { ContactForm } from '../../types/contact'
 
 import { GlobalContainer, TitleGlobal } from '../../styles'
 import { ContactFormElement, Description } from './styles'
-import { theme } from '../../variables'
 import InputWithLabel from '../InputWithLabel'
 
 const Contact = () => {
@@ -102,16 +100,12 @@ const Contact = () => {
                 />
               </div>
               <Button
-                disabled={isLoading}
+                loading={isLoading}
                 type="submit"
                 variant="accent"
                 title={t('contact.titleLabel')}
               >
-                {isLoading ? (
-                  <Loader color={theme.primary} />
-                ) : (
-                  t('contact.buttonText')
-                )}
+                {t('contact.buttonText')}
               </Button>
             </ContactFormElement>
           </FormProvider>
