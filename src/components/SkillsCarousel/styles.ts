@@ -15,6 +15,11 @@ export const Container = styled.ul`
     padding: 6px;
   }
 
+  .slick-slide li {
+    display: grid !important;
+    place-items: center;
+  }
+
   .slick-dots {
     li button::before {
       color: ${theme.ash};
