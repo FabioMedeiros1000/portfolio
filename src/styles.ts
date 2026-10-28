@@ -1,6 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components'
 
-import { breakpoints, colors, weights } from './variables'
+import { breakpoints, colors, theme, weights } from './variables'
 import { FormProps } from './hooks/useFormHook'
 
 const GlobalStyle = createGlobalStyle`
@@ -14,47 +14,40 @@ const GlobalStyle = createGlobalStyle`
     scroll-behavior: smooth;
   }
 
-  body, nav {
-    font-family: Roboto, sans-serif;
+  body {
+    background: ${theme.canvas};
+    color: ${theme.body};
+    font-family: Inter, system-ui, sans-serif;
     font-weight: ${weights.regular};
-    font-size: 1rem;
-    line-height: 1.625rem;
+    font-size: 16px;
+    line-height: 1.6;
+    font-feature-settings: "calt", "kern", "liga", "ss03";
+    -webkit-font-smoothing: antialiased;
   }
 
   h1 {
-    font-size: 3rem;
-    font-weight: ${weights.bold};
-    line-height: 3.625rem;
-
-    @media (max-width: ${breakpoints.pc}) {
-      font-size: 3.1rem;
-      line-height: 3.2rem;
-    }
-
-    @media (max-width: ${breakpoints.tablet}) {
-      font-size: 2.6rem;
-      line-height: 3.2rem;
-    }
+    font-weight: 600;
+    color: ${theme.ink};
   }
 
   h2 {
-    font-size: 2.25rem;
+    font-size: 40px;
     font-weight: ${weights.medium};
-    line-height: 1.9375rem;
+    color: ${theme.ink};
+    letter-spacing: 0.2px;
+    line-height: 1.17;
 
-    @media (max-width: ${breakpoints.tablet}) {
-      font-size: 1.8rem;
+    @media (max-width: ${breakpoints.layout}) {
+      font-size: 32px;
     }
   }
 
   h3 {
-    font-size: 1.75rem;
+    font-size: 18px;
     font-weight: ${weights.medium};
-    line-height: 2.4375rem;
-
-    @media (max-width: ${breakpoints.tablet}) {
-      font-size: 1.3rem;
-    }
+    color: ${theme.ink};
+    letter-spacing: 0.2px;
+    line-height: 1.4;
   }
 
   li {
@@ -63,7 +56,7 @@ const GlobalStyle = createGlobalStyle`
 
   a {
     text-decoration: none;
-    color: ${colors.white};
+    color: inherit;
   }
 
   input, textarea {
@@ -94,7 +87,7 @@ const GlobalStyle = createGlobalStyle`
     row-gap: 0px;
 
     @media (max-width: ${breakpoints.tablet}) {
-      flex-diretion: column;
+      flex-direction: column;
       flex-wrap: wrap;
       column-gap: 0px;
       row-gap: 16px;
@@ -110,21 +103,14 @@ const GlobalStyle = createGlobalStyle`
 `
 
 export const GlobalContainer = styled.div`
-  max-width: 1024px;
+  max-width: 1080px;
   width: 100%;
   margin: 0 auto;
-
-  @media (max-width: ${breakpoints.pc}) {
-    width: 90%;
-  }
-
-  @media (max-width: ${breakpoints.tablet}) {
-    width: 80%;
-  }
+  padding: 0 24px;
 `
 
 export const TitleGlobal = styled.h2`
-  margin-bottom: 16px;
+  margin-bottom: 32px;
 `
 
 export const FormContainer = styled.div<Pick<FormProps, 'borderColor'>>`
