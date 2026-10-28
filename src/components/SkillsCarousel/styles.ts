@@ -1,30 +1,28 @@
 import styled from 'styled-components'
-import { breakpoints, colors } from '../../variables'
+import { breakpoints, theme } from '../../variables'
 
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import { Group } from '../SkillGroup/styles'
 
 export const Container = styled.ul`
   display: none;
 
   @media (max-width: ${breakpoints.tablet}) {
     display: block;
-    margin-top: 24px;
+  }
 
-    ${Group} {
-      margin-bottom: 24px;
-    }
+  .slick-slide > div {
+    padding: 6px;
   }
 
   .slick-dots {
     li button::before {
-      color: ${colors.white};
+      color: ${theme.ash};
       font-size: 12px;
     }
 
     li.slick-active button:before {
-      color: ${colors.white};
+      color: ${theme.red};
       opacity: 1;
     }
 

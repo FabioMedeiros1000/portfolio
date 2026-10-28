@@ -9,7 +9,7 @@ const ContentSkillsDesktop = ({ skills }: ContentSkillsDesktopProps) => (
   <ContentSkillsContainer>
     {skills.map((skill, index) => (
       <li key={index + 1}>
-        <SkillGroup logo={skill.logo} text={skill.text} />
+        <SkillGroup {...skill} />
       </li>
     ))}
   </ContentSkillsContainer>

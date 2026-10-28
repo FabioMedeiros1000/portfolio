@@ -48,7 +48,7 @@ const ModalProject = forwardRef<ModalHandles, ModalProps>(
           </a>
           <Skills>
             {stacks.map((stack, index) => (
-              <SkillGroup key={index} logo={stack} size="40px" />
+              <SkillGroup key={index} logo={stack} variant="icon" />
             ))}
           </Skills>
         </Container>

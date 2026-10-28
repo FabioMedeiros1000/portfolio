@@ -7,7 +7,7 @@ import { SkillGroupProps } from '../SkillGroup'
 
 import logos from '../../utils/logos'
 
-import { GlobalContainer } from '../../styles'
+import { GlobalContainer, TitleGlobal } from '../../styles'
 
 const skills: SkillGroupProps[] = [
   {
@@ -15,15 +15,16 @@ const skills: SkillGroupProps[] = [
     logo: logos.python
   },
   {
-    text: 'Fastapi',
+    text: 'FastAPI',
     logo: logos.fastapi
   },
   {
-    text: 'Langchain',
-    logo: logos.langchain
+    text: 'LangChain',
+    logo: logos.langchain,
+    wide: true
   },
   {
-    text: 'Node',
+    text: 'Node.js',
     logo: logos.node
   },
   {
@@ -58,7 +59,7 @@ const Skills = () => {
   return (
     <Section id="skills">
       <GlobalContainer>
-        <h2 style={{"marginBottom": "24px"}}>{t('skills.title')}</h2>
+        <TitleGlobal>{t('skills.title')}</TitleGlobal>
         <ContentSkills skills={skills} />
       </GlobalContainer>
     </Section>

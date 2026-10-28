@@ -9,7 +9,7 @@ const ContentSkillsMobile = ({ skills }: ContentSkillsMobileProps) => (
   <SkillsCarousel>
     {skills.map((skill, index) => (
       <li key={index + 1}>
-        <SkillGroup logo={skill.logo} text={skill.text} size="50px" />
+        <SkillGroup {...skill} />
       </li>
     ))}
   </SkillsCarousel>

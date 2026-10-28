@@ -1,16 +1,36 @@
-import { Group } from './styles'
+import { Group, IconTile } from './styles'
 
 export type SkillGroupProps = {
   logo: string
   text?: string
-  size?: string
+  variant?: 'card' | 'icon'
+  wide?: boolean
 }
 
-const SkillGroup = ({ logo, text, size = '100px' }: SkillGroupProps) => (
-  <Group size={size}>
-    <img style={{"height": size, "width": size}} src={logo} alt={`Logo do(a) ${text}`} />
-    <p>{text}</p>
-  </Group>
-)
+const SkillGroup = ({
+  logo,
+  text,
+  variant = 'card',
+  wide = false
+}: SkillGroupProps) => {
+  const alt = text ? `Logo do(a) ${text}` : ''
+
+  if (variant === 'icon') {
+    return (
+      <IconTile $wide={wide}>
+        <img src={logo} alt={alt} />
+      </IconTile>
+    )
+  }
+
+  return (
+    <Group>
+      <IconTile $wide={wide}>
+        <img src={logo} alt={alt} />
+      </IconTile>
+      <p>{text}</p>
+    </Group>
+  )
+}
 
 export default SkillGroup
