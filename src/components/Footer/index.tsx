@@ -17,7 +17,6 @@ const items: FooterProps[] = [
     logo: email,
     text: 'contato@fabiomedeirosdev.com',
     link: 'mailto:contato@fabiomedeirosdev.com',
-    alt: 'Meu email',
     labelPt: 'meu email',
     labelEn: 'my email'
   },
@@ -25,7 +24,6 @@ const items: FooterProps[] = [
     logo: linkedin,
     text: 'https://www.linkedin.com/in/fabiomedeirosdev/',
     link: 'https://www.linkedin.com/in/fabiomedeirosdev/',
-    alt: 'Meu linkedin',
     labelPt: 'meu linkedin',
     labelEn: 'my linkedin'
   },
@@ -33,7 +31,6 @@ const items: FooterProps[] = [
     logo: telefone,
     text: '+55 (82) 99187-1637',
     link: 'https://wa.me/5582991871637',
-    alt: 'Meu número de telefone',
     labelPt: 'meu número de telefone',
     labelEn: 'my phone number'
   },
@@ -41,7 +38,6 @@ const items: FooterProps[] = [
     logo: github,
     text: 'https://github.com/FabioMedeiros1000',
     link: 'https://github.com/FabioMedeiros1000',
-    alt: 'Meu github',
     labelPt: 'meu github',
     labelEn: 'my github'
   }
@@ -63,7 +59,6 @@ const Footer = () => {
                 logo={item.logo}
                 text={displayUrl(item.text)}
                 link={item.link}
-                alt={item.alt}
                 title={t('footer.titleLabel', {
                   text: i18n.language === 'pt' ? item.labelPt : item.labelEn
                 })}

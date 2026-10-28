@@ -4,7 +4,6 @@ export type FooterProps = {
   logo: string
   text: string
   link: string
-  alt: string
   labelPt?: string
   labelEn?: string
 } & React.AnchorHTMLAttributes<HTMLAnchorElement>
@@ -13,7 +12,6 @@ const FooterGroup = ({
   logo,
   text,
   link,
-  alt,
   labelPt,
   labelEn,
   ...rest

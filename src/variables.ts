@@ -5,13 +5,6 @@ export const weights = {
   light: 300
 }
 
-export const colors = {
-  white: '#F3E3E2',
-  red: '#74112F',
-  blue: '#1B2E3C',
-  green: '#4FC3F7'
-}
-
 export const theme = {
   canvas: '#07080a',
   surface: '#0d0d0d',

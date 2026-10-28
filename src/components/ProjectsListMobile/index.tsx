@@ -15,7 +15,7 @@ const ProjectsListMobile = ({
 
   return (
     <ScrollbarContainer>
-      <Scrollbars style={{ height: 550 }}>
+      <Scrollbars>
         <List>
           {items.map((item, index) => (
             <li key={index}>

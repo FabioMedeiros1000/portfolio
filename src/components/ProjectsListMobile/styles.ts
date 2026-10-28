@@ -6,6 +6,7 @@ export const ScrollbarContainer = styled.div`
 
   @media (max-width: ${breakpoints.tablet}) {
     display: block;
+    height: 550px;
   }
 `
 
