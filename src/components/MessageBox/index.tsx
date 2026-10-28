@@ -7,8 +7,8 @@ export type MessageBoxProps = {
 
 const MessageBox = ({ iaReply, children }: MessageBoxProps) => {
   return (
-    <Container iaReply={iaReply}>
-      <Box>{children}</Box>
+    <Container $iaReply={iaReply}>
+      <Box $iaReply={iaReply}>{children}</Box>
     </Container>
   )
 }

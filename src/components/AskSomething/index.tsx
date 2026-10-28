@@ -10,7 +10,13 @@ import { sendPrompt } from '../../services/iaService'
 import { GlobalContainer, TitleGlobal } from '../../styles'
 import { theme } from '../../variables'
 import Loader from '../Loader'
-import { MessageContainer } from './styles'
+import {
+  Kbd,
+  MessageContainer,
+  Palette,
+  PaletteFoot,
+  PaletteSearch
+} from './styles'
 import { useTranslation } from 'react-i18next'
 import Input from '../Input'
 
@@ -51,6 +57,15 @@ const AskSomething = () => {
     }
   }
 
+  const handleKeyDown = (
+    event: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    if (event.key === 'Enter' && !event.shiftKey) {
+      event.preventDefault()
+      if (!loading) handleSubmit(onSubmit)()
+    }
+  }
+
   useEffect(() => {
     if (lastMessageRef.current) {
       lastMessageRef.current.scrollIntoView({ behavior: 'smooth' })
@@ -78,22 +93,51 @@ const AskSomething = () => {
         </MessageContainer>
         <FormProvider {...methods}>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <Input
-              type="textarea"
-              fieldName="prompt"
-              validationMessage={t('validationMessage.required')}
-              minLength={5}
-              maxLength={530}
-              error={errors.prompt?.message as string}
-              placeholder={t('askMe.placeholder')}
-            />
-            <Button
-              variant="accent"
-              type="submit"
-              title={t('askMe.buttonTitle')}
-            >
-              {loading ? <Loader color={theme.primary} /> : t('askMe.button')}
-            </Button>
+            <Palette>
+              <PaletteSearch>
+                <svg
+                  aria-hidden="true"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                >
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m20 20-3.5-3.5" />
+                </svg>
+                <Input
+                  type="textarea"
+                  fieldName="prompt"
+                  validationMessage={t('validationMessage.required')}
+                  minLength={5}
+                  maxLength={530}
+                  error={errors.prompt?.message as string}
+                  placeholder={t('askMe.placeholder')}
+                  onKeyDown={handleKeyDown}
+                />
+              </PaletteSearch>
+              <PaletteFoot>
+                <small>{t('askMe.assistantLabel')}</small>
+                <Button
+                  variant="accent"
+                  type="submit"
+                  title={t('askMe.buttonTitle')}
+                  disabled={loading}
+                >
+                  {loading ? (
+                    <Loader color={theme.primary} />
+                  ) : (
+                    <>
+                      {t('askMe.button')}
+                      <Kbd aria-hidden="true">↵</Kbd>
+                    </>
+                  )}
+                </Button>
+              </PaletteFoot>
+            </Palette>
           </form>
         </FormProvider>
       </GlobalContainer>

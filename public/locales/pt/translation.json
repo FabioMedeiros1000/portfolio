@@ -86,7 +86,8 @@
     "title": "Me pergunte alguma coisa",
     "button": "Pergunte",
     "placeholder": "Faça alguma pergunta sobre mim e uma IA treinada com meus dados te responderá!",
-    "buttonTitle": "Clique aqui para tirar a sua dúvida"
+    "buttonTitle": "Clique aqui para tirar a sua dúvida",
+    "assistantLabel": "Assistente de IA"
   },
   "footer": {
     "titleLabel": "Clique aqui para acessar {{text}}"
