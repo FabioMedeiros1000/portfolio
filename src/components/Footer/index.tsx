@@ -1,5 +1,4 @@
 import FooterGroup from '../FooterGroup'
-import Section from '../Section'
 
 import { FooterProps } from '../FooterGroup'
 
@@ -8,7 +7,7 @@ import linkedin from '../../assets/logos/linkedin.svg'
 import telefone from '../../assets/logos/telefone.svg'
 import github from '../../assets/logos/github.svg'
 
-import { FooterGrid } from './styles'
+import { FooterGrid, FooterWrapper } from './styles'
 
 import { GlobalContainer } from '../../styles'
 import { useTranslation } from 'react-i18next'
@@ -48,18 +47,21 @@ const items: FooterProps[] = [
   }
 ]
 
+const displayUrl = (url: string) =>
+  url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')
+
 const Footer = () => {
   const { t, i18n } = useTranslation()
 
   return (
-    <Section variant="bare">
+    <FooterWrapper variant="bare">
       <GlobalContainer>
         <FooterGrid>
           {items.map((item, index) => (
             <li key={index}>
               <FooterGroup
                 logo={item.logo}
-                text={item.text}
+                text={displayUrl(item.text)}
                 link={item.link}
                 alt={item.alt}
                 title={t('footer.titleLabel', {
@@ -70,7 +72,7 @@ const Footer = () => {
           ))}
         </FooterGrid>
       </GlobalContainer>
-    </Section>
+    </FooterWrapper>
   )
 }
 

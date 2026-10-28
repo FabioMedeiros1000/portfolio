@@ -1,18 +1,19 @@
 import styled from 'styled-components'
-import { breakpoints } from '../../variables'
+import Section from '../Section'
+import { breakpoints, theme } from '../../variables'
+
+export const FooterWrapper = styled(Section)`
+  border-top: 1px solid ${theme.hairlineSoft};
+  padding: 48px 0;
+`
 
 export const FooterGrid = styled.ul`
   display: flex;
-  align-items: flex-end;
-  column-gap: 57px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
 
-  @media (max-width: ${breakpoints.pc}) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    row-gap: 24px;
-  }
-
-  @media (max-width: ${breakpoints.tablet}) {
-    display: block;
+  @media (max-width: ${breakpoints.layout}) {
+    flex-direction: column;
   }
 `

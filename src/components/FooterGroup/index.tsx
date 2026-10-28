@@ -17,13 +17,21 @@ const FooterGroup = ({
   labelPt,
   labelEn,
   ...rest
-}: FooterProps) => (
-  <Container>
-    <a href={link} target="blank" {...rest}>
-      <img src={logo} alt={alt} />
-    </a>
-    <small>{text}</small>
-  </Container>
-)
+}: FooterProps) => {
+  const isMail = link.startsWith('mailto:')
+
+  return (
+    <Container>
+      <a
+        href={link}
+        {...(isMail ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
+        {...rest}
+      >
+        <img src={logo} alt="" />
+        <span>{text}</span>
+      </a>
+    </Container>
+  )
+}
 
 export default FooterGroup
