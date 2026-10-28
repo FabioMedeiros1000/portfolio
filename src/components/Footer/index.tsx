@@ -52,7 +52,7 @@ const Footer = () => {
   const { t, i18n } = useTranslation()
 
   return (
-    <Section backgroundColor="blue">
+    <Section variant="bare">
       <GlobalContainer>
         <FooterGrid>
           {items.map((item, index) => (

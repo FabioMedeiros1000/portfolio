@@ -49,7 +49,7 @@ const Contact = () => {
   }
 
   return (
-    <Section backgroundColor="white" id="contact">
+    <Section id="contact">
       <>
         <GlobalContainer>
           <TitleGlobal>{t('contact.title')}</TitleGlobal>

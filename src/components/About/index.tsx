@@ -12,7 +12,7 @@ const About = () => {
   const { t } = useTranslation()
 
   return (
-    <Section backgroundColor="white" id="about">
+    <Section variant="hero" id="about">
       <GlobalContainer>
         <TitleGlobal>{t('about.title')}</TitleGlobal>
         <SectionContent>

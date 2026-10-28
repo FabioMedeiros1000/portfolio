@@ -1,22 +1,12 @@
 import { SectionContainer } from './styles'
 
 export type Props = {
-  backgroundColor: 'red' | 'white' | 'blue'
-  children: JSX.Element
-  padding?: number
-} & React.HTMLAttributes<HTMLDivElement>
+  variant?: 'default' | 'hero' | 'bare'
+  children: React.ReactNode
+} & React.HTMLAttributes<HTMLElement>
 
-const Section = ({
-  backgroundColor,
-  children,
-  padding = 24,
-  ...rest
-}: Props) => (
-  <SectionContainer
-    padding={padding}
-    backgroundColor={backgroundColor}
-    {...rest}
-  >
+const Section = ({ variant = 'default', children, ...rest }: Props) => (
+  <SectionContainer $variant={variant} {...rest}>
     {children}
   </SectionContainer>
 )

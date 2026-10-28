@@ -9,7 +9,7 @@ const Resume = () => {
   const { t, i18n } = useTranslation()
 
   return (
-    <Section backgroundColor="red" id="resume">
+    <Section id="resume">
       <GlobalContainer>
         <TitleGlobal>{t('resume.title')}</TitleGlobal>
         <p>{t('resume.description')}</p>

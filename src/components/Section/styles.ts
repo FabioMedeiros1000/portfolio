@@ -1,30 +1,29 @@
-import styled from 'styled-components'
-import { colors } from '../../variables'
+import styled, { css } from 'styled-components'
+import { breakpoints, spacing } from '../../variables'
 import { Props } from '.'
 
-function getBackgroundColor(backgroundColor: string) {
-  if (backgroundColor === 'red') {
-    return colors.red
-  }
+type VariantProps = { $variant: NonNullable<Props['variant']> }
 
-  if (backgroundColor === 'blue') {
-    return colors.blue
-  }
+const variants = {
+  default: css`
+    padding: ${spacing.section} 0;
 
-  return colors.white
+    @media (max-width: ${breakpoints.layout}) {
+      padding: 72px 0;
+    }
+  `,
+  hero: css`
+    padding: 136px 0 112px;
+    overflow: hidden;
+
+    @media (max-width: ${breakpoints.layout}) {
+      padding: 96px 0 72px;
+    }
+  `,
+  bare: css``
 }
 
-function getTextColor(backgroundColor: string) {
-  if (backgroundColor === 'red' || backgroundColor === 'blue') {
-    return colors.white
-  }
-
-  return colors.red
-}
-
-export const SectionContainer = styled.div<Omit<Props, 'children'>>`
-  background-color: ${(props) => getBackgroundColor(props.backgroundColor)};
-  color: ${(props) => getTextColor(props.backgroundColor)};
-  padding: ${(props) => `${props.padding}px 0`};
+export const SectionContainer = styled.section<VariantProps>`
   position: relative;
+  ${(props) => variants[props.$variant]}
 `

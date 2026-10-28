@@ -180,7 +180,7 @@ const ProjectsSection = () => {
   }, [modalState])
 
   return (
-    <Section backgroundColor="white" id="projects">
+    <Section id="projects">
       <>
         <GlobalContainer>
           <Title>{t('projects.title')}</Title>

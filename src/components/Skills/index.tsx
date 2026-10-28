@@ -56,7 +56,7 @@ const Skills = () => {
   const { t } = useTranslation()
 
   return (
-    <Section backgroundColor="red" id="skills">
+    <Section id="skills">
       <GlobalContainer>
         <h2 style={{"marginBottom": "24px"}}>{t('skills.title')}</h2>
         <ContentSkills skills={skills} />

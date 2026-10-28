@@ -58,7 +58,7 @@ const AskSomething = () => {
   }, [chat])
 
   return (
-    <Section backgroundColor="red" id="askMe">
+    <Section id="askMe">
       <GlobalContainer>
         <TitleGlobal>{t('askMe.title')}</TitleGlobal>
         <MessageContainer>

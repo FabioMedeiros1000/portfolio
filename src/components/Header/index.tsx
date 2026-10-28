@@ -27,7 +27,7 @@ const Header = () => {
   }
 
   return (
-    <Section padding={20} backgroundColor="red">
+    <Section variant="bare">
       <GlobalContainer>
         <HeaderContent>
           <h1>Fullstack Developer</h1>
